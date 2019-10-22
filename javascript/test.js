@@ -37,7 +37,7 @@ const characters = {
     }
 };
 
-// Stores enemies and bosses stats
+// Stores items
 var candySmall = {
     name: "candySmall",
     type: "healing",
@@ -54,10 +54,17 @@ var candyLarge = {
     healing: 90
 };
 var potion = {
-    type: "potion",
-    hpIncrease: 30,
-    healing: 0,
-    damageIncrease: 0
+    make: function (hp = 0, heal = 0, dmg = 0) {
+        var temp = {
+            type: "potion",
+            hpIncrease: hp,
+            healing: heal,
+            damageIncrease: dmg,
+            name: "potion"
+            // name: "potionOf" + (hp > 0 ? "Enduring" : "") + (heal > 0 ? "Health" : "") + (dmg > 0 ? "Strength" : "")
+        };
+        return temp;
+    }
 };
 var items = {
     smallCandy: candySmall,
@@ -77,7 +84,7 @@ const enemies = [
                 skill: 5
             }
         },
-        drops: [items.smallCandy, items.potion]
+        drops: [items.smallCandy]
     }
 ];
 
@@ -119,6 +126,13 @@ const c = {
         if (player.hp > player.maxHP) {
             player.hp = player.maxHP;
         }
+        console.log("healed by " + item.healing + "HP");
+    },
+    addHP: function (item) {
+        player.maxHP += item.hpIncrease;
+    },
+    addDmg: function (item) {
+
     },
     //use an item from inventory
     use: function (item) {
@@ -126,11 +140,17 @@ const c = {
         if (player.inventory.includes(item)) {
             //for healing items
             if (item.type === "healing") {
-                this.heal(item);
+                if (player.hp < player.maxHP) {
+                    this.heal(item);
+                }
+                else {
+                    console.log("You do not need to heal");
+                }
             }
             if (item.type === "potion") {
                 this.heal(item);
-                pla
+                this.addHP(item);
+                this.addDmg(item);
             }
             //for weapons
             if (item.type === "weapon") {
