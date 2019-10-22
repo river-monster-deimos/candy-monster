@@ -1,10 +1,10 @@
 "use strict";
-var player;
 //stores all playable character stats
-var characters = [
-    {
+var characters = {
+    jw: {
         name: "jw",
         hp: 120,
+        maxHP: 120,
         def: 0,
         attacks: {
             basic: {
@@ -14,13 +14,14 @@ var characters = [
             special: {
                 dmg: 90,
                 skill: 5
-            }
-        },
-        inventory: []
+                }
+            },
+            inventory: [items.smallCandy, items.smallCandy, items.medCandy]
     },
-    {
+    kellsey: {
         name: "kellsey",
         hp: 150,
+        maxHP: 150,
         def: 0,
         attacks: {
             basic: {
@@ -30,11 +31,10 @@ var characters = [
             special: {
                 dmg: 90,
                 skill: 5
-            }
-        },
+            }},
         inventory: []
-    },
-];
+    }
+};
 
 // Stores enemies and bosses stats
 var enemies = [
@@ -84,6 +84,40 @@ var enemies = [
     }
 ];
 
-function encounter(enemy) {
+var items = {
+    smallCandy: {
+        type: "healing",
+        healing: 30
+    },
+    medCandy: {
+        type: "healing",
+        healing: 60
+    },
+    lrgCandy: {
+        type: "healing",
+        healing: player.hp
+    }
+};
 
-}
+var player = characters.jw;
+
+var command = {
+    status: function () {
+        console.log("Health: " + player.hp + "\n" + "Attacks: " + player.attacks + "\n" + "Inventory: " + player.inventory);
+    },
+    attack: function (Attack, target) {
+        target.hp -= (target.def * -1) + player.Attack.dmg;
+    },
+    use: function (item) {
+        if (player.inventory.includes(item)) {
+            if (item.type === "healing") {
+                player.hp += item.healing;
+                player.inventory.splice(player.inventory.indexOf(item), 1);
+            }
+        }
+    }
+};
+
+player.hp -= 60;
+
+//
