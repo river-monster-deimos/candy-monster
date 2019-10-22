@@ -1,6 +1,7 @@
 "use strict";
 //stores all playable character stats
-var characters = {
+
+const characters = {
     jw: {
         name: "jw",
         hp: 120,
@@ -16,7 +17,7 @@ var characters = {
                 skill: 5
                 }
             },
-            inventory: [items.smallCandy, items.smallCandy, items.medCandy]
+            inventory: []
     },
     kellsey: {
         name: "kellsey",
@@ -37,9 +38,9 @@ var characters = {
 };
 
 // Stores enemies and bosses stats
-var enemies = [
+const enemies = [
     {
-        name: "candy-fiend",
+        name: "chocolateMonster",
         hp: 60,
         def: 0,
         attacks: {
@@ -50,7 +51,7 @@ var enemies = [
         }
     },
     {
-        name: "candy-zombie",
+        name: "chocolateMonster2",
         hp: 90,
         def: 0,
         attacks: {
@@ -61,7 +62,7 @@ var enemies = [
         }
     },
     {
-        name: "pumpkin-zombie",
+        name: "pumpkinZombie",
         hp: 90,
         def: 2,
         attacks: {
@@ -72,7 +73,7 @@ var enemies = [
         }
     },
     {
-        name: "pumpkin boss",
+        name: "pumpkinBoss",
         hp: 150,
         def: 5,
         attacks: {
@@ -83,41 +84,73 @@ var enemies = [
         }
     }
 ];
-
+var candySmall = {
+    name: "small-candy",
+    type: "healing",
+    healing: 30
+};
+var candyMed = {
+    name: "med-candy",
+    type: "healing",
+    healing: 60
+};
 var items = {
-    smallCandy: {
-        type: "healing",
-        healing: 30
-    },
-    medCandy: {
-        type: "healing",
-        healing: 60
-    },
+    smallCandy: candySmall,
+    medCandy: candyMed,
     lrgCandy: {
+        name: "lrg-candy",
         type: "healing",
-        healing: player.hp
+        healing: "all"
     }
 };
 
-var player = characters.jw;
+//temporary player selection
+let player = characters.jw;
 
-var command = {
+//commands to be used with interface
+const c = {
+    //shows players current stats and inventory
     status: function () {
         console.log("Health: " + player.hp + "\n" + "Attacks: " + player.attacks + "\n" + "Inventory: " + player.inventory);
     },
+    //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
     attack: function (Attack, target) {
         target.hp -= (target.def * -1) + player.Attack.dmg;
     },
+    //use an item from inventory
     use: function (item) {
+        //checks if player has the item
         if (player.inventory.includes(item)) {
-            if (item.type === "healing") {
-                player.hp += item.healing;
+            //for healing items
+            if (item.type === "healing" && player.hp < player.maxHP) {
+                if (item.healing === "all") {
+                    player.hp = player.maxHP;
+                }
+                else {
+                    player.hp += item.healing;
+                }
                 player.inventory.splice(player.inventory.indexOf(item), 1);
             }
+            if (player.hp > player.maxHP) {
+                player.hp = player.maxHP;
+            }
+            console.log("Current Health: " + player.hp);
         }
+        else if (player.hp === player.maxHP) {
+            console.log("You do not need to heal")
+        }
+        else {
+            console.log("You do not have this item.");
+        }
+    },
+    attackPlayer: function (enemy, attack) {
+        player.hp -= enemy.attacks.basic;
     }
 };
 
-player.hp -= 60;
+let inCombat;
+
+player.hp -= 90;
+player.inventory.push(items.smallCandy, items.smallCandy, items.medCandy, items.lrgCandy);
 
 //
