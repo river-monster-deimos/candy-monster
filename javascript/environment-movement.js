@@ -1,3 +1,4 @@
-function move() {
-    while (onkeypress("w"));
+var player = document.getElementById("player").addEventListener();
+while (true) {
+
 }

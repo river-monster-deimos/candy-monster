@@ -2,9 +2,28 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>test</title>
+    <title>Candy Monster Game</title>
+    <style>
+        .character {
+            width: 30px;
+            height: 30px;
+            border: 2px solid black;
+            position: relative;
+        }
+        #player {
+            background-color: green;
+        }
+        #enemy-test {
+            background-color: red;
+        }
+    </style>
 </head>
 <body>
+    <div id="player" class="character"></div>
+    <div id="enemy-test" class="character"></div>
+    <div id="combat-screen" class="screen"></div>
+
+<script src="javascript/environment-movement.js"></script>
 <script src="javascript/test.js"></script>
 </body>
 </html>
