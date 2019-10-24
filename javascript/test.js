@@ -5,7 +5,8 @@ const characters = {
     jw: {
         name: "jw",
         hp: 120,
-        maxHP: 120,
+        hpMax: 120,
+        hpBonus: 0,
         def: 0,
         attacks: {
             basic: {
@@ -37,6 +38,9 @@ const characters = {
     }
 };
 
+//temporary player selection
+let player = characters.jw;
+
 // Stores items
 var candySmall = {
     name: "candySmall",
@@ -54,17 +58,11 @@ var candyLarge = {
     healing: 90
 };
 var potion = {
-    make: function (hp = 0, heal = 0, dmg = 0) {
-        var temp = {
-            type: "potion",
-            hpIncrease: hp,
-            healing: heal,
-            damageIncrease: dmg,
-            name: "potion"
-            // name: "potionOf" + (hp > 0 ? "Enduring" : "") + (heal > 0 ? "Health" : "") + (dmg > 0 ? "Strength" : "")
-        };
-        return temp;
-    }
+    type: "potion",
+    healing: 15,
+    hpIncrease: 30,
+    damageIncrease: 0,
+    name: "potion",
 };
 var items = {
     smallCandy: candySmall,
@@ -88,9 +86,6 @@ const enemies = [
     }
 ];
 
-//temporary player selection
-let player = characters.jw;
-
 //commands to be used with interface
 const c = {
     showNames: function (n) {
@@ -111,25 +106,27 @@ const c = {
     status: function () {
         console.log("Health: " + player.hp + "\n" + "Inventory: " + this.showNames(player.inventory));
     },
+    removeItem: function (n) {
+        player.inventory.splice(player.inventory.indexOf(n), 1);
+    },
     //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
     attack: function (Attack, target) {
         target.hp -= (target.def * -1) + player.Attack.dmg;
     },
     heal: function (item) {
         if (item.healing === "all") {
-            player.hp = player.maxHP;
+            player.hp = player.hpMax;
         }
         else {
             player.hp += item.healing;
         }
-        player.inventory.splice(player.inventory.indexOf(item), 1);
-        if (player.hp > player.maxHP) {
-            player.hp = player.maxHP;
+        if (player.hp > player.hpMax) {
+            player.hp = player.hpMax;
         }
         console.log("healed by " + item.healing + "HP");
     },
     addHP: function (item) {
-        player.maxHP += item.hpIncrease;
+        player.hpMax += item.hpIncrease;
     },
     addDmg: function (item) {
 
@@ -137,16 +134,18 @@ const c = {
     //use an item from inventory
     use: function (item) {
         //checks if player has the item
-        if (player.inventory.includes(item)) {
+        if (player.inventory.includes(item.name)) {
             //for healing items
             if (item.type === "healing") {
-                if (player.hp < player.maxHP) {
+                if (player.hp < player.hpMax) {
                     this.heal(item);
+                    this.heal();
                 }
                 else {
                     console.log("You do not need to heal");
                 }
             }
+            //for potions
             if (item.type === "potion") {
                 this.heal(item);
                 this.addHP(item);
