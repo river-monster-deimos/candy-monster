@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="test.css">
+    <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
+    <link href="rpgui.css" rel="stylesheet" type="text/css">
+    <script src="rpgui.js"></script>
+</head>
+<body>
+<div class="rpgui-content">
+    <div id="gameScreen">
+        <div id="mainScreen" class="rpgui-container framed" style="height: 540px; width: 980px">
+            <p class="text">Hero: I've already been to 8 houses and I still don't have an candy. What's going on!?</p>
+            <h1 class="prompt">What do you want to do?</h1>
+            <button class="rpgui-button golden choice1" type="button" style="width:50%">Try another house</button>
+            <button class="rpgui-button golden choice2" type="button" style="width:50%">Walk to the next street</button>
+        </div>
+        <div id="characterScreen" class="rpgui-container framed" style="left:250px; top:540px; width: 730px">
+            <div id="chPic" class="rpgui-container framed" style="left:0px; top:540px; width: 250px">
+                <img src="../img/monsters-battle/candyCornWitch.png" alt="" style="width: 200px; height: 215px">
+            </div>
+            <div id="stats">
+                <label>Health:</label>
+                <div id="hp-bar" data-value=".6" class="rpgui-progress red"></div>
+                <label>Mana:</label>
+                <div id="mana-bar" data-value=".8" class="rpgui-progress blue"></div>
+                <label>EXP:</label>
+                <div id="exp-bar" data-value="0.2" class="rpgui-progress purple"></div>
+            </div>
+        </div>
+    </div>
+    <div id="battleScreen">
+        <div id="mainBattleScreen">
+            <div id="character"></div>
+            <div id="enemy"></div>
+        </div>
+        <div id="battleMenu">
+            <div id="statBar"></div>
+            <div id="select"></div>
+            <div id="choice"></div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
