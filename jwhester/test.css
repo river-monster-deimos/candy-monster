@@ -1,0 +1,32 @@
+html{background-color: black}
+#mainScreen{
+    background-image: url("png/1_game_background/1_game_background.png");
+    background-size: 100% 100%;
+}
+.text{
+    position: absolute;
+    background-color: black;
+    color: coral!important;
+    top: 30%;
+    height: 50px;
+    width: 950px;
+    margin-left: -10px;
+    padding-top: 10px;
+
+}
+.prompt{
+    position: absolute;
+    top: 50%;
+    left: 30%;
+
+}
+.choice1{
+    position: absolute;
+    top: 60%;
+    left: 25%;
+}
+.choice2{
+    position: absolute;
+    top: 70%;
+    left: 25%;
+}
