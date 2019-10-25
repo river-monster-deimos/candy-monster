@@ -6,16 +6,19 @@
     <link rel="stylesheet" href="test.css">
     <link href='https://fonts.googleapis.com/css?family=Press+Start+2P' rel='stylesheet' type='text/css'>
     <link href="rpgui.css" rel="stylesheet" type="text/css">
-    <script src="rpgui.js"></script>
+
 </head>
 <body>
 <div class="rpgui-content">
     <div id="gameScreen">
         <div id="mainScreen" class="rpgui-container framed" style="height: 540px; width: 980px">
-            <p class="text">Hero: I've already been to 8 houses and I still don't have an candy. What's going on!?</p>
-            <h1 class="prompt">What do you want to do?</h1>
-            <button class="rpgui-button golden choice1" type="button" style="width:50%">Try another house</button>
-            <button class="rpgui-button golden choice2" type="button" style="width:50%">Walk to the next street</button>
+            <div class="container">
+                <div id="text"></div>
+                <div id="option-buttons" class="btn-grid">
+                    <button class="rpgui-button golden btn"></button>
+                    <button class="rpgui-button golden btn"></button>
+                </div>
+            </div>
         </div>
         <div id="characterScreen" class="rpgui-container framed" style="left:250px; top:540px; width: 730px">
             <div id="chPic" class="rpgui-container framed" style="left:0px; top:540px; width: 250px">
@@ -43,5 +46,7 @@
         </div>
     </div>
 </div>
+<script src="rpgui.js"></script>
+<script src="candyMonsterMain.js"></script>
 </body>
 </html>

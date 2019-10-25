@@ -105,13 +105,15 @@ inside your html file.
   /* default size and display */
   max-width: 100%;
   min-width: 140px;
-  height: 60px;
+  height: 70px;
   display: inline-block;
   /* padding */
-  padding-top: 5px;
+  padding-top: 15px;
   padding-left: 35px;
   padding-right: 35px;
-  overflow: visible; }
+  padding-bottom: 5px;
+  overflow: visible;
+}
 
 /* button hover */
 .rpgui-button.golden.hover,
