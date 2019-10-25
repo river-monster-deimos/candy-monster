@@ -134,12 +134,12 @@ const c = {
     //use an item from inventory
     use: function (item) {
         //checks if player has the item
-        if (player.inventory.includes(item.name)) {
+        if (player.inventory.includes(item)) {
             //for healing items
             if (item.type === "healing") {
                 if (player.hp < player.hpMax) {
                     this.heal(item);
-                    this.heal();
+                    // this.heal();
                 }
                 else {
                     console.log("You do not need to heal");
