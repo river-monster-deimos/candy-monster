@@ -139,6 +139,7 @@ const c = {
                 if (player.hp < player.hpMax) {
                     this.heal(item);
                     // this.heal();
+                    this.removeItem(item);
                 }
                 else {
                     console.log("You do not need to heal");
