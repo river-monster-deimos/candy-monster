@@ -169,4 +169,3 @@ let inCombat = false;
 
 player.hp -= 30;
 player.inventory.push(items.smallCandy, items.smallCandy, items.medCandy, items.lrgCandy);
-
