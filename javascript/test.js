@@ -59,9 +59,9 @@ var candyLarge = {
 };
 var potion = {
     type: "potion",
-    healing: 15,
-    hpIncrease: 30,
-    damageIncrease: 0,
+    healing: 30,
+    hpBonus: 30,
+    damageIncrease: 30,
     name: "potion",
 };
 var items = {
@@ -70,7 +70,6 @@ var items = {
     lrgCandy: candyLarge,
     potion: potion
 };
-
 const enemies = [
     {
         name: "chocolateMonster",
