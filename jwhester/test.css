@@ -1,32 +1,37 @@
-html{background-color: black}
+html{background-color: black; font-family: 'Press Start 2P', cursive; box-sizing: border-box}
 #mainScreen{
     background-image: url("png/1_game_background/1_game_background.png");
     background-size: 100% 100%;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
 }
-.text{
-    position: absolute;
-    background-color: black;
-    color: coral!important;
-    top: 30%;
-    height: 50px;
-    width: 950px;
-    margin-left: -10px;
-    padding-top: 10px;
+.container {
+    width: 800px;
+    max-width: 80%;
+    padding: 10px;
+    margin-left: -10%;
 
 }
-.prompt{
-    position: absolute;
-    top: 50%;
-    left: 30%;
+#text{
+    line-height: 30px;
+    padding: 20px;
+    left: 10%;
+    right: 10%;
+    background-color: rgba(0,0,0,.8);
+    color: coral;
+    font-size: 20px;
+}
 
+.btn-grid{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 5%;
 }
-.choice1{
-    position: absolute;
-    top: 60%;
-    left: 25%;
-}
-.choice2{
-    position: absolute;
-    top: 70%;
-    left: 25%;
-}
+
+
+
