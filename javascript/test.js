@@ -108,10 +108,6 @@ const c = {
     removeItem: function (n) {
         player.inventory.splice(player.inventory.indexOf(n), 1);
     },
-    //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
-    attack: function (Attack, target) {
-        target.hp -= (target.def * -1) + player.Attack.dmg;
-    },
     heal: function (item) {
         if (item.healing === "all") {
             player.hp = player.hpMax;
@@ -162,10 +158,37 @@ const c = {
     },
     attackPlayer: function (enemy, attack) {
         player.hp -= enemy.attacks.basic;
-    }
+    },
+    //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
+    attack: function (Attack, target) {
+        if (inCombat.enemies.length === 0) {
+            if (inCombat.enemies.includes(target)) {
+                target.hp -= player.Attack.dmg;
+            }
+            else {
+                console.log("Invalid Target");
+            }
+        }
+        else {
+            console.log("You are not currently in combat");
+        }
+    },
 };
 
-let inCombat = false;
+let inCombat = {
+    enemies: [],
+    playersTurn: true
+};
+
+function battle() {
+    while (player.hp > 0) {
+        c.attackPlayer();
+
+    }
+}
 
 player.hp -= 30;
 player.inventory.push(items.smallCandy, items.smallCandy, items.medCandy, items.lrgCandy);
+
+inCombat.enemies.push(enemies[0]);
+console.log(inCombat);
