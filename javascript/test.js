@@ -70,22 +70,23 @@ var items = {
     lrgCandy: candyLarge,
     potion: potion
 };
+var chocolateMonster = {
+    name: "chocolateMonster",
+    hp: 60,
+    def: 0,
+    attacks: {
+        basic: {
+            dmg: 15,
+            skill: 5
+        }
+    },
+    drops: [items.smallCandy],
+    attackPlayer: function (attack) {
+        player.hp -= this.attacks[attack].dmg;
+    },
+};
 const enemies = [
-    {
-        name: "chocolateMonster",
-        hp: 60,
-        def: 0,
-        attacks: {
-            basic: {
-                dmg: 15,
-                skill: 5
-            }
-        },
-        drops: [items.smallCandy],
-        attackPlayer: function (attack) {
-            player.hp -= this.attacks[attack].dmg;
-        },
-    }
+    chocolateMonster
 ];
 
 //commands to be used with interface
@@ -168,6 +169,7 @@ let combat = {
         for (var i = 0; i < this.enemies.length; i++) {
             if (this.enemies[i].hp <= 0) {
                 this.enemies.splice(i, 1);
+                player.inventory.concat(enemies[i].drops)
             }
         }
         if (this.enemies.length >= 0) {
@@ -179,13 +181,10 @@ let combat = {
     },
     //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
     attack: function (Attack, target) {
-        if (inCombat.enemies.length === 0) {
-            if (inCombat.enemies.includes(target)) {
-                target.hp -= player.Attack.dmg;
-            }
-            else {
-                console.log("Invalid Target");
-            }
+        if (this.enemies.length >= 0) {
+            this.enemies[target].hp -= player.attacks[Attack].dmg;
+            console.log("Damaged " + this.enemies[target].name + " by " + player.attacks[Attack].dmg);
+            this.checkEnemies();
         }
         else {
             console.log("You are not currently in combat");
@@ -210,10 +209,14 @@ function battle() {
         // } while (false);
     // }
     combat.enemiesAttack();
+    combat.attack("basic", 0);
+    combat.attack("basic", 0);
+    combat.attack("basic", 0);
+    console.log(combat)
 }
 
 // player.hp -= 30;
-player.inventory.push(items.smallCandy, items.smallCandy, items.medCandy, items.lrgCandy);
+// player.inventory.push(items.smallCandy, items.smallCandy, items.medCandy, items.lrgCandy);
 
 combat.enemies.push(enemies[0], enemies[0]);
 console.log(combat);
