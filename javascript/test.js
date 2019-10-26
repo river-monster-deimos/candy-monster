@@ -81,7 +81,10 @@ const enemies = [
                 skill: 5
             }
         },
-        drops: [items.smallCandy]
+        drops: [items.smallCandy],
+        attackPlayer: function (attack) {
+            player.hp -= this.attacks[attack].dmg;
+        },
     }
 ];
 
@@ -155,9 +158,24 @@ const c = {
         else {
             console.log("You do not have this item.");
         }
-    },
-    attackPlayer: function (enemy, attack) {
-        player.hp -= enemy.attacks.basic;
+    }
+};
+
+let combat = {
+    enemies: [],
+    playersTurn: false,
+    checkEnemies: function () {
+        for (var i = 0; i < this.enemies.length; i++) {
+            if (this.enemies[i].hp <= 0) {
+                this.enemies.splice(i, 1);
+            }
+        }
+        if (this.enemies.length >= 0) {
+            return true
+        }
+        else {
+            return false
+        }
     },
     //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
     attack: function (Attack, target) {
@@ -173,22 +191,30 @@ const c = {
             console.log("You are not currently in combat");
         }
     },
+    enemiesAttack: function () {
+        if (this.checkEnemies() && this.playersTurn === false) {
+            this.enemies.forEach(function (n) {
+                n.attackPlayer("basic");
+                console.log("attacked player!");
+            });
+            this.playersTurn === true;
+        }
+    }
 };
 
-let inCombat = {
-    enemies: [],
-    playersTurn: true
-};
 
 function battle() {
-    while (player.hp > 0) {
-        c.attackPlayer();
+    // while (player.hp > 0 || combat.checkEnemies()) {
+        // do {
 
-    }
+        // } while (false);
+    // }
+    combat.enemiesAttack();
 }
 
-player.hp -= 30;
+// player.hp -= 30;
 player.inventory.push(items.smallCandy, items.smallCandy, items.medCandy, items.lrgCandy);
 
-inCombat.enemies.push(enemies[0]);
-console.log(inCombat);
+combat.enemies.push(enemies[0], enemies[0]);
+console.log(combat);
+battle();
