@@ -1,7 +1,7 @@
 "use strict";
 
-var textElement = document.getElementById('text');
-var optionButtonsElement = document.getElementById('option-buttons');
+var textElement = document.getElementById('text');//grabs the text
+var optionButtonsElement = document.getElementById('option-buttons');//grabs the buttons
 
 
 var state = {};
@@ -12,16 +12,16 @@ function startGame() {
 }
 
 function showTextNode(textNodeIndex) {
-    var textNode = textNodes.find(textNode => textNode.id === textNodeIndex);
-    textElement.innerText = textNode.text;
+    var textNode = textNodes.find(textNode => textNode.id === textNodeIndex);//grabs the text node
+    textElement.innerText = textNode.text;//enters the text onto the screen
     while (optionButtonsElement.firstChild) {//removes buttons when not needed
         optionButtonsElement.removeChild(optionButtonsElement.firstChild)
     }
-    textNode.options.forEach(option => {
+    textNode.options.forEach(option => {//grabs the option from the node
         if (showOption(option)) {
             var button = document.createElement('button');
-            button.innerText = option.text;
-            button.classList.add('rpgui-button', 'golden', 'btn');
+            button.innerText = option.text;//adds text to button
+            button.classList.add('rpgui-button', 'golden', 'btn');//adds class
             button.addEventListener('click', () => selectOption(option));
             optionButtonsElement.appendChild(button);
         }
@@ -76,7 +76,7 @@ var textNodes = [
                 nextText: 3
             },
             {
-                text: "Talk to the candy.",
+                text: "Talk to the candy.",//die
                 nextText: 3
             }
         ]
