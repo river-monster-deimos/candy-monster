@@ -68,6 +68,15 @@ html{background-color: black; font-family: 'Press Start 2P', cursive; box-sizing
     grid-template-columns: 50% 50%;
     grid-gap: 5%;
 }
-
+.startBoy{
+    position: absolute;
+    top: 70%;
+    margin-left: -10%;
+}
+.startGirl{
+    position: absolute;
+    top: 70%;
+    margin-left: 0%;
+}
 
 
