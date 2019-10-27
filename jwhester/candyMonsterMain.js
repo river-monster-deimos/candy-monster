@@ -2,13 +2,28 @@
 
 var textElement = document.getElementById('text');//grabs the text
 var optionButtonsElement = document.getElementById('option-buttons');//grabs the buttons
-
-
 var state = {};
 
-function startGame() {
+function startGameBoy() {
     state = {};
     showTextNode(1);
+    document.getElementById("girl").style.display = "none";
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "block";
+    document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
+}
+function startGameGirl() {
+    state = {};
+    showTextNode(1);
+    document.getElementById("girl").style.display = "block";
+    document.getElementById("boy").style.display = "none";
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "block";
+    document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
+}
+function endGame() {
+    document.getElementById("startScreen").style.display = "block";
+    document.getElementById("gameScreen").style.display = "none";
 }
 
 function showTextNode(textNodeIndex) {
@@ -28,7 +43,9 @@ function showTextNode(textNodeIndex) {
     });
 }
 
-
+function levelChange2() {
+    document.getElementById("mainScreen").className = "rpgui-container framed lvl2";
+}
 
 
 function showOption(option) {
@@ -39,7 +56,22 @@ function selectOption(option) {
     var nextTextNodeId = option.nextText;
     state = Object.assign(state, option.setState);
     showTextNode(nextTextNodeId);
+    if (nextTextNodeId <= -2){
+        return endGame();
+    }
+    switch (nextTextNodeId) {
+        case -1:
+            document.getElementById("mainScreen").className = "rpgui-container framed gameOver";
+            break;
+        case 1:
+            document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
+            break;
+        case 4:
+            document.getElementById("mainScreen").className = "rpgui-container framed lvl2";
+            break;
+    }
 }
+
 
 var textNodes = [
     {
@@ -77,7 +109,7 @@ var textNodes = [
             },
             {
                 text: "Talk to the candy.",//die
-                nextText: 3
+                nextText: -1
             }
         ]
 
@@ -100,15 +132,25 @@ var textNodes = [
         options: [
             {
                 text: "Try another house",
-                nextText: 1.5
+                nextText: 1
             },
             {
                 text: "Move to the next street",
-                nextText: 2
+                nextText: 1
             }
+        ]
+    },
+    {
+        id: -1,
+        text:"You died.",
+        options: [
+            {
+                text: "New Game",
+                nextText: -2
+            },
         ]
     },
 
 ];
 
-startGame();
+// startGame();

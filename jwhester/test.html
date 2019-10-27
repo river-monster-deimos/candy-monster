@@ -10,7 +10,15 @@
 </head>
 <body>
 <div class="rpgui-content">
-    <div id="gameScreen">
+    <div id="startScreen" class="rpgui-container framed start">
+        <button class="rpgui-button golden btn" onclick="startGameBoy()">Boy</button>
+        <button class="rpgui-button golden btn" onclick="startGameGirl()">Girl</button>
+
+    </div>
+    <div id="gameOver" style="display: none">
+        <button class="rpgui-button golden btn end">New Game</button>
+    </div>
+    <div id="gameScreen" style="display: none">
         <div id="mainScreen" class="rpgui-container framed" style="height: 540px; width: 980px">
             <div class="container">
                 <div id="text"></div>
@@ -23,7 +31,8 @@
         </div>
         <div id="characterScreen" class="rpgui-container framed" style="left:250px; top:540px; width: 730px">
             <div id="chPic" class="rpgui-container framed" style="left:0px; top:540px; width: 250px">
-                <img src="../img/monsters-battle/candyCornWitch.png" alt="" style="width: 200px; height: 215px">
+                <img src="../img/heroes/mainCharacterBoy.png" alt="" style="width: 200px; height: 215px" id="boy">
+                <img src="../img/heroes/mainCharacterGirl.png" alt="" style="width: 200px; height: 215px; display: none" id="girl">
             </div>
             <div id="stats">
                 <label>Health:</label>

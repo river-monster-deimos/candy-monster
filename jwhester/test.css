@@ -1,6 +1,19 @@
 html{background-color: black; font-family: 'Press Start 2P', cursive; box-sizing: border-box}
+
+.start{
+    background-image: url("../img/titleScreen.png")!important;
+    background-size: 100% 100%!important;
+    background-repeat: no-repeat!important;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+}
+
 #mainScreen{
-    background-image: url("png/1_game_background/1_game_background.png");
     background-size: 100% 100%;
     padding: 0;
     margin: 0;
@@ -10,6 +23,28 @@ html{background-color: black; font-family: 'Press Start 2P', cursive; box-sizing
     width: 100vw;
     height: 100vh;
 }
+
+.lvl1{
+    background-image: url("../img/levels/level1.png")!important;
+
+}
+
+.lvl2{
+    background-image: url("../img/levels/level2.png")!important;
+}
+
+.lvl3{
+    background-image: url("../img/levels/level3.png")!important;
+}
+
+.lvl4{
+
+}
+
+.gameOver{
+    background-image: url("../img/gameOver.png")!important;
+}
+
 .container {
     width: 800px;
     max-width: 80%;
