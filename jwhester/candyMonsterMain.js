@@ -3,11 +3,13 @@
 var textElement = document.getElementById('text');//grabs the text
 var optionButtonsElement = document.getElementById('option-buttons');//grabs the buttons
 var state = {};
+// var hero = prompt('What is your name?');
 
 function startGameBoy() {
     state = {};
     showTextNode(1);
     document.getElementById("girl").style.display = "none";
+    document.getElementById("boy").style.display = "block";
     document.getElementById("startScreen").style.display = "none";
     document.getElementById("gameScreen").style.display = "block";
     document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
@@ -43,9 +45,6 @@ function showTextNode(textNodeIndex) {
     });
 }
 
-function levelChange2() {
-    document.getElementById("mainScreen").className = "rpgui-container framed lvl2";
-}
 
 
 function showOption(option) {
@@ -66,8 +65,11 @@ function selectOption(option) {
         case 1:
             document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
             break;
-        case 4:
+        case 7:
             document.getElementById("mainScreen").className = "rpgui-container framed lvl2";
+            break;
+        case 9:
+            document.getElementById("mainScreen").className = "rpgui-container framed lvl3";
             break;
     }
 }
@@ -127,6 +129,245 @@ var textNodes = [
     },
     {
         id: 4,
+        text: "As the candy monster breathes his last breath he shouts 'You'll pay for what you did to me! My boss, The River Monster, will take gobble you up just like he did to all of the candy.' What could this mean? You begin to wonder. What will you do now? ",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 5
+            },
+            {
+                text: "Move to the next street",
+                nextText: 6
+            }
+        ]
+    },
+    {
+        id: 5,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 6
+            },
+            {
+                text: "Move to the next street",
+                nextText: 6
+            }
+        ]
+    },
+    {
+        id: 6,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 7
+            },
+            {
+                text: "Move to the next street",
+                nextText: 7
+            }
+        ]
+    },
+    {
+        id: 7,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 8
+            },
+            {
+                text: "Move to the next street",
+                nextText: 8
+            }
+        ]
+    },
+    {
+        id: 8,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 9
+            },
+            {
+                text: "Move to the next street",
+                nextText: 9
+            }
+        ]
+    },
+    {
+        id: 9,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
+        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
+            "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        options: [
+            {
+                text: "Try another house",
+                nextText: 1
+            },
+            {
+                text: "Move to the next street",
+                nextText: 1
+            }
+        ]
+    },
+    {
+        id: 4,
         text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
             "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
         options: [
@@ -142,6 +383,16 @@ var textNodes = [
     },
     {
         id: -1,
+        text:"You died. That's what happens when you try to talk to monsters.",
+        options: [
+            {
+                text: "New Game",
+                nextText: -2
+            },
+        ]
+    },
+    {
+        id: -2,
         text:"You died.",
         options: [
             {
@@ -150,7 +401,6 @@ var textNodes = [
             },
         ]
     },
-
 ];
 
 // startGame();
