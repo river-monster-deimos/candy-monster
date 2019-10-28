@@ -70,19 +70,24 @@ var items = {
     lrgCandy: candyLarge,
     potion: potion
 };
+var chocolateMonster = {
+    name: "chocolateMonster",
+    hp: 60,
+    def: 0,
+    attacks: {
+        basic: {
+            dmg: 15,
+            skill: 5
+        }
+    },
+    drops: [items.smallCandy],
+    attackPlayer: function (attack) {
+        player.hp -= this.attacks[attack].dmg;
+        console.log("You took " + this.attacks[attack].dmg + " damage!");
+    },
+};
 const enemies = [
-    {
-        name: "chocolateMonster",
-        hp: 60,
-        def: 0,
-        attacks: {
-            basic: {
-                dmg: 15,
-                skill: 5
-            }
-        },
-        drops: [items.smallCandy]
-    }
+    chocolateMonster
 ];
 
 //commands to be used with interface
@@ -107,10 +112,6 @@ const c = {
     },
     removeItem: function (n) {
         player.inventory.splice(player.inventory.indexOf(n), 1);
-    },
-    //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
-    attack: function (Attack, target) {
-        target.hp -= (target.def * -1) + player.Attack.dmg;
     },
     heal: function (item) {
         if (item.healing === "all") {
@@ -139,6 +140,7 @@ const c = {
                 if (player.hp < player.hpMax) {
                     this.heal(item);
                     // this.heal();
+                    this.removeItem(item);
                 }
                 else {
                     console.log("You do not need to heal");
@@ -150,21 +152,61 @@ const c = {
                 this.addHP(item);
                 this.addDmg(item);
             }
-            //for weapons
-            if (item.type === "weapon") {
-
-            }
         }
         else {
             console.log("You do not have this item.");
         }
-    },
-    attackPlayer: function (enemy, attack) {
-        player.hp -= enemy.attacks.basic;
     }
 };
 
-let inCombat = false;
+let combat = {
+    enemies: [],
+    playersTurn: false,
+    checkEnemies: function () {
+        if (this.enemies.length !== 0) {
+            for (var i = 0; i < this.enemies.length; i++) {
+                if (this.enemies[i].hp <= 0) {
+                    console.log("Destroyed " + enemies[i].name + "!");
+                    player.inventory.concat(enemies[i].drops);
+                    this.enemies.splice(i, 1);
+                }
+            }
+            return true
+        }
+        else {
+            return false
+        }
+    },
+    //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
+    attack: function (Attack, target) {
+        if (this.enemies.length > 0) {
+            this.enemies[target].hp -= player.attacks[Attack].dmg;
+            console.log("Damaged " + this.enemies[target].name + " by " + player.attacks[Attack].dmg);
+            this.checkEnemies();
+        }
+        else {
+            console.log("You are not currently in combat");
+        }
+    },
+    enemiesAttack: function () {
+        if (this.checkEnemies() && this.playersTurn === false) {
+            for (var i = 0; i < this.enemies.length; i++) {
+                this.enemies[i].attackPlayer("basic");
+                console.log("attacked player!");
+                if (player.hp <= 0) {
+                    console.log("You died");
+                    break;
+                }
+            }
+            this.playersTurn === true;
+        }
+    }
+};
 
-player.hp -= 30;
-player.inventory.push(items.smallCandy, items.smallCandy, items.medCandy, items.lrgCandy);
+function battle() {
+    for (var i = 0; i < 20; i++) {
+        combat.enemiesAttack();
+    }
+    combat.attack("basic", 0);
+    console.log(combat);
+}
