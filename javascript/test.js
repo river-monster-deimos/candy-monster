@@ -190,28 +190,23 @@ let combat = {
     },
     enemiesAttack: function () {
         if (this.checkEnemies() && this.playersTurn === false) {
-            this.enemies.forEach(function (n) {
-                n.attackPlayer("basic");
+            for (var i = 0; i < this.enemies.length; i++) {
+                this.enemies[i].attackPlayer("basic");
                 console.log("attacked player!");
-            });
+                if (player.hp <= 0) {
+                    console.log("You died");
+                    break;
+                }
+            }
             this.playersTurn === true;
         }
     }
 };
 
-
 function battle() {
-    // while (player.hp > 0 || combat.checkEnemies()) {
-        // do {
-            ////Adding combat loop here
-        // } while (false);
-    // }
-    combat.enemiesAttack();
+    for (var i = 0; i < 20; i++) {
+        combat.enemiesAttack();
+    }
     combat.attack("basic", 0);
     console.log(combat);
 }
-
-c.status();
-combat.enemies.push(enemies[0]);
-console.log(combat);
-battle();
