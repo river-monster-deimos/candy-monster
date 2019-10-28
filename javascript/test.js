@@ -83,6 +83,7 @@ var chocolateMonster = {
     drops: [items.smallCandy],
     attackPlayer: function (attack) {
         player.hp -= this.attacks[attack].dmg;
+        console.log("You took " + this.attacks[attack].dmg + " damage!");
     },
 };
 const enemies = [
@@ -151,10 +152,6 @@ const c = {
                 this.addHP(item);
                 this.addDmg(item);
             }
-            //for weapons
-            if (item.type === "weapon") {
-
-            }
         }
         else {
             console.log("You do not have this item.");
@@ -166,13 +163,14 @@ let combat = {
     enemies: [],
     playersTurn: false,
     checkEnemies: function () {
-        for (var i = 0; i < this.enemies.length; i++) {
-            if (this.enemies[i].hp <= 0) {
-                this.enemies.splice(i, 1);
-                player.inventory.concat(enemies[i].drops)
+        if (this.enemies.length !== 0) {
+            for (var i = 0; i < this.enemies.length; i++) {
+                if (this.enemies[i].hp <= 0) {
+                    console.log("Destroyed " + enemies[i].name + "!");
+                    player.inventory.concat(enemies[i].drops);
+                    this.enemies.splice(i, 1);
+                }
             }
-        }
-        if (this.enemies.length >= 0) {
             return true
         }
         else {
@@ -181,7 +179,7 @@ let combat = {
     },
     //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
     attack: function (Attack, target) {
-        if (this.enemies.length >= 0) {
+        if (this.enemies.length > 0) {
             this.enemies[target].hp -= player.attacks[Attack].dmg;
             console.log("Damaged " + this.enemies[target].name + " by " + player.attacks[Attack].dmg);
             this.checkEnemies();
@@ -192,32 +190,23 @@ let combat = {
     },
     enemiesAttack: function () {
         if (this.checkEnemies() && this.playersTurn === false) {
-            this.enemies.forEach(function (n) {
-                n.attackPlayer("basic");
+            for (var i = 0; i < this.enemies.length; i++) {
+                this.enemies[i].attackPlayer("basic");
                 console.log("attacked player!");
-            });
+                if (player.hp <= 0) {
+                    console.log("You died");
+                    break;
+                }
+            }
             this.playersTurn === true;
         }
     }
 };
 
-
 function battle() {
-    // while (player.hp > 0 || combat.checkEnemies()) {
-        // do {
-
-        // } while (false);
-    // }
-    combat.enemiesAttack();
+    for (var i = 0; i < 20; i++) {
+        combat.enemiesAttack();
+    }
     combat.attack("basic", 0);
-    combat.attack("basic", 0);
-    combat.attack("basic", 0);
-    console.log(combat)
+    console.log(combat);
 }
-
-// player.hp -= 30;
-// player.inventory.push(items.smallCandy, items.smallCandy, items.medCandy, items.lrgCandy);
-
-combat.enemies.push(enemies[0], enemies[0]);
-console.log(combat);
-battle();
