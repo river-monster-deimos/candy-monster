@@ -83,6 +83,7 @@ var chocolateMonster = {
     drops: [items.smallCandy],
     attackPlayer: function (attack) {
         player.hp -= this.attacks[attack].dmg;
+        console.log("You took " + this.attacks[attack].dmg + " damage!");
     },
 };
 const enemies = [
