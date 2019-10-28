@@ -1,5 +1,19 @@
 "use strict";
 
+//TODO: use function in switch loop
+//TODO: place image on screen with text
+//TODO: when boy or girl is picked create var that adds character name in dialog
+//TODO: when boy or girl is picked create var that changes the story line choices
+//TODO: fix buttons on new game start
+//TODO: add battle feature
+//TODO: target data-value when certain choices are made
+//TODO: add music
+//TODO: add sound effects
+//TODO: add story
+
+
+
+
 var textElement = document.getElementById('text');//grabs the text
 var optionButtonsElement = document.getElementById('option-buttons');//grabs the buttons
 var state = {};
@@ -24,8 +38,7 @@ function startGameGirl() {
     document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
 }
 function endGame() {
-    document.getElementById("startScreen").style.display = "block";
-    document.getElementById("gameScreen").style.display = "none";
+    window.location.reload();
 }
 
 function showTextNode(textNodeIndex) {
@@ -208,16 +221,16 @@ var textNodes = [
         options: [
             {
                 text: "Try another house",
-                nextText: 1
+                nextText: 10
             },
             {
                 text: "Move to the next street",
-                nextText: 1
+                nextText: 10
             }
         ]
     },
     {
-        id: 4,
+        id: 10,
         text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
             "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
         options: [
