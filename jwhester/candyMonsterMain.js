@@ -1,10 +1,8 @@
 "use strict";
 
-//TODO: use function in switch loop
 //TODO: place image on screen with text
 //TODO: when boy or girl is picked create var that adds character name in dialog
 //TODO: when boy or girl is picked create var that changes the story line choices
-//TODO: fix buttons on new game start
 //TODO: add battle feature
 //TODO: target data-value when certain choices are made
 //TODO: add music
@@ -64,6 +62,9 @@ function showOption(option) {
     return option.requiredState == null || option.requiredState(state);
 }
 
+function doSomething(){
+    console.log("Hey look!!");
+}
 function selectOption(option) {
     var nextTextNodeId = option.nextText;
     state = Object.assign(state, option.setState);
@@ -75,11 +76,15 @@ function selectOption(option) {
         case -1:
             document.getElementById("mainScreen").className = "rpgui-container framed gameOver";
             break;
-        case 1:
-            document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
-            break;
+        // case 1:
+        //     doSomething();
+        //     document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
+        //     doSomething();
+        //     break;
         case 7:
             document.getElementById("mainScreen").className = "rpgui-container framed lvl2";
+            doSomething();
+
             break;
         case 9:
             document.getElementById("mainScreen").className = "rpgui-container framed lvl3";
