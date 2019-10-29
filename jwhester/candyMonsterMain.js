@@ -62,9 +62,7 @@ function showOption(option) {
     return option.requiredState == null || option.requiredState(state);
 }
 
-function doSomething(){
-    console.log("Hey look!!");
-}
+
 function selectOption(option) {
     var nextTextNodeId = option.nextText;
     state = Object.assign(state, option.setState);
@@ -76,15 +74,17 @@ function selectOption(option) {
         case -1:
             document.getElementById("mainScreen").className = "rpgui-container framed gameOver";
             break;
-        // case 1:
-        //     doSomething();
-        //     document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
-        //     doSomething();
-        //     break;
+        case 2:
+            document.getElementById("mainScreen").className = "rpgui-container framed candyCorn";
+            break;
+        case 3.4:
+            brutality.play();
+            break;
+        case 4:
+            document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
+            break;
         case 7:
             document.getElementById("mainScreen").className = "rpgui-container framed lvl2";
-            doSomething();
-
             break;
         case 9:
             document.getElementById("mainScreen").className = "rpgui-container framed lvl3";
@@ -128,7 +128,18 @@ var textNodes = [
                 nextText: 3
             },
             {
-                text: "Talk to the candy.",//die
+                text: "Talk to the candy.",
+                nextText: 2.1
+            }
+        ]
+
+    },
+    {
+        id: 2.1,
+        text: "The candy monster rips your throat out.",
+        options: [
+            {
+                text: "You die.",
                 nextText: -1
             }
         ]
@@ -136,26 +147,74 @@ var textNodes = [
     },
     {
         id: 3,
-        text: "The landlubber crushes with yellow fever, rob the quarter-deck. The lagoon crushes with strength, view the fortress before it whines." +
-            "The shiny pirate smartly endures the dubloon. The mighty bung hole fast hails the corsair.",
+        text: "The candy closes in on you.  What do you do?",
         options: [
             {
-                text: "fight",
+                text: "Dodge",
+                nextText: 3.1
+            },
+            {
+                text: "Punch",
+                nextText: 3.2
+            },
+            {
+                text: "Kick",
+                nextText: 3.1
+            }
+        ]
+    },
+    {
+        id: 3.1,
+        text: "You slip and fall, the candy bites your leg.",
+        options: [
+            {
+                text: "Stand and fight",
+                nextText: 3
+            }
+        ]
+    },
+    {
+        id: 3.2,
+        text: "You punch the candy straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        options: [
+            {
+                text: "Run away!",
+                nextText: 3.3
+            },
+            {
+                text: "FINISH HIM!",
+                nextText: 3.4
+            }
+        ]
+    },
+    {
+        id: 3.3,
+        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The monster quickly recovers, and jumps on top of you. The monster violently rips out your intestines.",
+        options: [
+            {
+                text: "Die.",
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 3.4,
+        text: "You run full speed at the monster, and do a flying kick to the monsters face.  Your foot goes through the monsters face instantly killing him.  Somewhere off in the distance you hear someone shout, 'BRUTALITY'.",
+        options: [
+            {
+                text: "Continue to the next street.",
                 nextText: 4
             }
         ]
     },
     {
         id: 4,
-        text: "As the candy monster breathes his last breath he shouts 'You'll pay for what you did to me! My boss, The River Monster, will take gobble you up just like he did to all of the candy.' What could this mean? You begin to wonder. What will you do now? ",
+        text: "The landlubber crushes with yellow fever, rob the quarter-deck. The lagoon crushes with strength, view the fortress before it whines." +
+            "The shiny pirate smartly endures the dubloon. The mighty bung hole fast hails the corsair.",
         options: [
             {
-                text: "Try another house",
+                text: "fight",
                 nextText: 5
-            },
-            {
-                text: "Move to the next street",
-                nextText: 6
             }
         ]
     },
@@ -401,7 +460,7 @@ var textNodes = [
     },
     {
         id: -1,
-        text:"You died. That's what happens when you try to talk to monsters.",
+        text:"You died.",
         options: [
             {
                 text: "New Game",

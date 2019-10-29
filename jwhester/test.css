@@ -29,6 +29,10 @@ html{background-color: black; font-family: 'Press Start 2P', cursive; box-sizing
 
 }
 
+.candyCorn{
+    background-image: url("../img/monsters-battle/candyCornWitch.png")!important;
+}
+
 .lvl2{
     background-image: url("../img/levels/level2.png")!important;
 }
@@ -76,7 +80,7 @@ html{background-color: black; font-family: 'Press Start 2P', cursive; box-sizing
 .startGirl{
     position: absolute;
     top: 70%;
-    margin-left: 0%;
+    margin-left: 10%;
 }
 
 
