@@ -162,6 +162,14 @@ const c = {
 let combat = {
     enemies: [],
     playersTurn: false,
+    checkPlayer: function () {
+        if (player.hp <= 0) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    },
     checkEnemies: function () {
         if (this.enemies.length !== 0) {
             for (var i = 0; i < this.enemies.length; i++) {
@@ -177,6 +185,7 @@ let combat = {
             return false
         }
     },
+    input: "",
     //attacks a target, takes which attack that will be used as the first arg and which enemy to attack as the second
     attack: function (Attack, target) {
         if (this.enemies.length > 0) {
@@ -186,6 +195,15 @@ let combat = {
         }
         else {
             console.log("You are not currently in combat");
+        }
+    },
+    waitForPlayer: function () {
+        function loop() {
+            if (combat.inputAttack === "") {
+                setTimeout(loop, 0);
+            } else {
+                // callback();
+            }
         }
     },
     enemiesAttack: function () {
@@ -204,9 +222,16 @@ let combat = {
 };
 
 function battle() {
-    for (var i = 0; i < 20; i++) {
+    do {
         combat.enemiesAttack();
-    }
-    combat.attack("basic", 0);
-    console.log(combat);
+        while (true) {
+            if (combat.input === "") {
+            }
+            else {
+                combat.attack(combat.input, 0);
+                combat.input = "";
+                break;
+            }
+        }
+    } while (combat.checkEnemies() && combat.checkPlayer());
 }
