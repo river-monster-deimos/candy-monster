@@ -2,8 +2,8 @@
 var textNodes = [
     {
         id: 1,
-        text: "It's Halloween night and we find ourselves trick or treating. The night has not gotten off to a good start, " +
-        "because this is the eighth house in a row that does not have candy.",
+        text: "It's Halloween night and you find yourself trick or treating. The night has not gotten off to a good start, " +
+        "because this is the eighth house in a row that does not have any candy.",
         options: [
             {
                 text: "Try another house",
@@ -17,7 +17,7 @@ var textNodes = [
     },
     {
         id: 1.5,
-        text: "No candy here either! Our candy must be in another house.",
+        text: "There's no candy here either! There has to be candy at another house.",
         options: [
             {
                 text: "Move to the next street",
@@ -35,14 +35,14 @@ var textNodes = [
             },
             {
                 text: "Talk to the candy.",
-                nextText: 2.5
+                nextText: 2.1
             }
         ]
 
     },
     {
-        id: 2.5,
-        text: "The candy monster rips your throat out.",
+        id: 2.1,
+        text: "The candy monster doesn't understand and takes you down in one swoop. That's what happens when you try to talk to monsters!",
         options: [
             {
                 text: "You die.",
@@ -71,7 +71,7 @@ var textNodes = [
     },
     {
         id: 3.1,
-        text: "You slip and fall, the candy bites your leg.",
+        text: "You slip and fall, the candy bites your leg. You lost __ HP",
         options: [
             {
                 text: "Stand and fight",
@@ -95,7 +95,7 @@ var textNodes = [
     },
     {
         id: 3.3,
-        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The monster quickly recovers, and jumps on top of you. The monster violently rips out your intestines.",
+        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The monster has recovered and proceeds to jump you. You were never heard from again ",
         options: [
             {
                 text: "Die.",
@@ -105,187 +105,237 @@ var textNodes = [
     },
     {
         id: 3.4,
-        text: "You run full speed at the monster, and do a flying kick to the monsters face.  Your foot goes through the monsters face instantly killing him.  Somewhere off in the distance you hear someone shout, 'BRUTALITY'.",
+        text: "You run full speed at the monster, and do a flying kick to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
+        "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
         options: [
             {
-                text: "Continue to the next street.",
+                text: "Take the candy and continue to the next street.",
+                nextText: 3.5
+            }
+        ]
+    },
+    {
+        id: 3.5,
+        text: "You hear something towards the edge of town and you go to investigate. There's two potential areas that this sound is coming from which way do you go?",
+        options: [
+            {
+                text: "A lighted sidewalk",
+                nextText: 3.6
+            },
+            {
+                text: "An alley",
                 nextText: 4
             }
         ]
     },
     {
-        id: 4,
-        text: "The landlubber crushes with yellow fever, rob the quarter-deck. The lagoon crushes with strength, view the fortress before it whines." +
-        "The shiny pirate smartly endures the dubloon. The mighty bung hole fast hails the corsair.",
+        id: 3.6,
+        text: "You go down the lighted path but you don't see anything out of the ordinary. It would probably be best to go back",
         options: [
             {
-                text: "fight",
+                text: "Go back",
+                nextText: 3.5
+            },
+
+        ]
+    },
+    {
+        id: 4,
+        text: "You cautiously enter the alley and there is indeed something there. A monster! " +
+        "But you see something isn't right. It's stuck, being a bubblegum monster must be difficult. What do you do?",
+        options: [
+            {
+                text: "Fight the monster",
+                nextText: 4.1
+            },
+            {
+                text: "Spare the monster",
+                nextText: 4.3
+            }
+        ]
+    },
+    {
+        id: 4.1,
+        text: "The candy closes just sits there.  What do you do?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 4.2
+            },
+            {
+                text: "Kick",
+                nextText: 4.2
+            }
+        ]
+    },
+    {
+        id: 4.2,
+        text: "Wow, you just mercilessly killed that poor helpless monster, maybe the real monster is you...",
+        options: [
+            {
+                text: "Keep Going",
+                nextText: 5
+            }
+        ]
+    },
+    {
+        id: 4.3,
+        text: "For your kindness and sparing the stuck monster, it gives you a special magical boost in it's last moments alive." +
+        "You feel slightly saddened for the creature",
+        options: [
+            {
+                text: "Consume the magical boost and continue on",
                 nextText: 5
             }
         ]
     },
     {
         id: 5,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        text: "You finally arrived on the last street of the town right at the edge of the forest. You spy a big cauldron shaped candy bowl sitting on a table on the porch. What do you do?",
         options: [
             {
-                text: "Try another house",
-                nextText: 6
+                text: "Take a piece of candy",
+                nextText: 5.1
             },
             {
-                text: "Move to the next street",
-                nextText: 6
+                text: "Take the whole bowl",
+                nextText: 5.1
             }
+        ]
+    },
+    {
+        id: 5.1,
+        text: "Hah it was a trap! You're ambushed by what seems to be a much larger candy monster. It takes a swipe at you and you lose __ HP. " +
+        "You have no choice but to fight for your life",
+        options: [
+            {
+                text: "FIGHT",
+                nextText: 5.2
+            },
+        ]
+    },
+    {
+        id: 5.2,
+        text: "The candy is getting ready to attack again. What do you do?",
+        options: [
+            {
+                text: "Dodge",
+                nextText: 5.3
+            },
+            {
+                text: "Punch",
+                nextText: 5.4
+            },
+            {
+                text: "Kick",
+                nextText: 5.4
+            }
+        ]
+    },
+    {
+        id: 5.3,
+        text: "Your dodge was successful! There's an opening to attack, what will you do?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 5.4
+            },
+            {
+                text: "Kick",
+                nextText: 5.4
+            }
+        ]
+    },
+    {
+        id: 5.4,
+        text: "Your hit landed and made the monster screech. The monster frenzies and haphazardly tries to slash you. Think fast!",
+        options: [
+            {
+                text: "Dodge Again",
+                nextText: 5.5
+            },
+            {
+                text: "Block with your halloween prop",
+                nextText: 5.6
+            }
+        ]
+    },
+    {
+        id: 5.5,
+        text: "Your dodge failed and you take twice the damage since the monster is frenzied. __ HP lost. What's your next move?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 5.7
+            },
+            {
+                text: "Kick",
+                nextText: 5.7
+            }
+        ]
+    },
+    {
+        id: 5.6,
+        text: "You block the incoming swipe and your prop breaks but it took most of the damage for you. You only took half damage, __ HP. What's your next move?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 5.7
+            },
+            {
+                text: "Kick",
+                nextText: 5.7
+            }
+        ]
+    },
+    {
+        id: 5.7,
+        text: "This hit as well! With that, the monster has crumpled to the ground in pain. You can tell one more hit and the monster is done for. What do you do?",
+        options: [
+            {
+                text: "FINISH HIM",
+                nextText: 5.8
+            },
+            {
+                text: "Spare him",
+                nextText: 5.9
+            }
+        ]
+    },
+    {
+        id: 5.8,
+        text: "With one final blow you killed the monster that ambushed you over a bowl of candy. Wow what a night it's turning out to be! Out of the corner of your eye you see something running to the tree line of the forest. " +
+        "You have a feeling that it has to do something with this whole night being weird.",
+        options: [
+            {
+                text: "Go into the forest",
+                nextText: 6
+            },
+
+        ]
+    },
+    {
+        id: 5.9,
+        text: "It was a grave mistake to try to spare the monster, it takes a cheap shot and takes you down and you aren't able to recover.",
+        options: [
+            {
+                text: "Don't trust monsters so easily",
+                nextText: -1
+            },
+
         ]
     },
     {
         id: 6,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        text: "You walk into the forest on a path but it splits almost immediately which way do you go?",
         options: [
             {
-                text: "Try another house",
-                nextText: 7
+                text: "Left",
+                nextText: 6.1
             },
             {
-                text: "Move to the next street",
-                nextText: 7
-            }
-        ]
-    },
-    {
-        id: 7,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
-        options: [
-            {
-                text: "Try another house",
-                nextText: 8
-            },
-            {
-                text: "Move to the next street",
-                nextText: 8
-            }
-        ]
-    },
-    {
-        id: 8,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
-        options: [
-            {
-                text: "Try another house",
-                nextText: 9
-            },
-            {
-                text: "Move to the next street",
-                nextText: 9
-            }
-        ]
-    },
-    {
-        id: 9,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
-        options: [
-            {
-                text: "Try another house",
-                nextText: 10
-            },
-            {
-                text: "Move to the next street",
-                nextText: 10
-            }
-        ]
-    },
-    {
-        id: 10,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
-        options: [
-            {
-                text: "Try another house",
-                nextText: 1
-            },
-            {
-                text: "Move to the next street",
-                nextText: 1
-            }
-        ]
-    },
-    {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
-        options: [
-            {
-                text: "Try another house",
-                nextText: 1
-            },
-            {
-                text: "Move to the next street",
-                nextText: 1
-            }
-        ]
-    },
-    {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
-        options: [
-            {
-                text: "Try another house",
-                nextText: 1
-            },
-            {
-                text: "Move to the next street",
-                nextText: 1
-            }
-        ]
-    },
-    {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
-        options: [
-            {
-                text: "Try another house",
-                nextText: 1
-            },
-            {
-                text: "Move to the next street",
-                nextText: 1
-            }
-        ]
-    },
-    {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
-        options: [
-            {
-                text: "Try another house",
-                nextText: 1
-            },
-            {
-                text: "Move to the next street",
-                nextText: 1
-            }
-        ]
-    },
-    {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
-        options: [
-            {
-                text: "Try another house",
-                nextText: 1
-            },
-            {
-                text: "Move to the next street",
-                nextText: 1
+                text: "Right",
+                nextText: 6.1
             }
         ]
     },
