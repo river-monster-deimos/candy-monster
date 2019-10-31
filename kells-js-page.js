@@ -340,77 +340,150 @@ var textNodes = [
         ]
     },
     {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        id: 6.1,
+        text: "There seems to be candy bits and wrappers on the path. This has got to be the right direction to find out where all the candy in town went. " +
+        "Maybe that hooded figure that ran into the forest knows.",
         options: [
             {
-                text: "Try another house",
-                nextText: 1
-            },
-            {
-                text: "Move to the next street",
-                nextText: 1
+                text: "Track down the hooded figure",
+                nextText: 6.2
             }
         ]
     },
     {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        id: 6.2,
+        text: "You finally catch up to the hooded figure and you realize when they turn around that it's a pumpkin monster! What do you do next?",
         options: [
             {
-                text: "Try another house",
-                nextText: 1
+                text: "Try to talk/ be reasonable",
+                nextText: 6.3
             },
             {
-                text: "Move to the next street",
-                nextText: 1
+                text: "FIGHT",
+                nextText: 6.4
             }
         ]
     },
     {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        id: 6.3,
+        text: "You try to talk to the pumpkin monster and ask it why the candy was being taken.... But the pumpkin starts to insult you! You don't take insults from no one!",
         options: [
             {
-                text: "Try another house",
-                nextText: 1
-            },
-            {
-                text: "Move to the next street",
-                nextText: 1
+                text: "FIGHT",
+                nextText: 6.4
             }
         ]
     },
     {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        id: 6.4,
+        text: "The candy closes in on you.  What do you do?",
         options: [
             {
-                text: "Try another house",
-                nextText: 1
+                text: "Dodge",
+                nextText: 6.5
             },
             {
-                text: "Move to the next street",
-                nextText: 1
+                text: "Punch",
+                nextText: 6.6
+            },
+            {
+                text: "Kick",
+                nextText: 6.5
             }
         ]
     },
     {
-        id: 4,
-        text: "Quartered, divided pudding is best marinated with sour rum. To the whole pork butt add spinach, lettuce, orange juice and shredded chili. " +
-        "Sauerkraut can be marinateed with minced truffels, also try tossing the pie with hollandaise sauce.",
+        id: 6.5,
+        text: "You slip and fall, the candy bites your leg. You lost __ HP",
         options: [
             {
-                text: "Try another house",
-                nextText: 1
+                text: "Stand and fight",
+                nextText: 6.4
+            }
+        ]
+    },
+    {
+        id: 6.6,
+        text: "You punch the candy straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        options: [
+            {
+                text: "Run away!",
+                nextText: 6.7
             },
             {
-                text: "Move to the next street",
-                nextText: 1
+                text: "FINISH HIM!",
+                nextText: 6.8
+            }
+        ]
+    },
+    {
+        id: 6.7,
+        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The monster has recovered and proceeds to jump you. You were never heard from again ",
+        options: [
+            {
+                text: "Die.",
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 6.8,
+        text: "You run full speed at the monster, and do a flying kick to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
+        "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
+        options: [
+            {
+                text: "Take the candy and continue.",
+                nextText: 7
+            }
+        ]
+    },
+    {
+        id: 7,
+        text: "It's getting foggier the deeper you go into the forest without a sense of direction since you got nothing from that confrontation with the pumpkin monster."+
+        " Suddenly you hear a scream, sounds like a kid in trouble! What are you going to do?",
+        options: [
+            {
+                text: "Investigate",
+                nextText: 7.5
+            },
+            {
+                text: "Ignore it",
+                nextText: 7.1
+            }
+        ]
+    },
+    {
+        id: 7.1,
+        text: "Having made your choice you come to realize that there's a faint glow in the distance, but suddenly the glow grows brighter and you realize that it's coming towards you!" +
+        " It's another kind of pumpkin monster you notice a little too late as it attacks you. You lost __ HP. You have to fight back or this won't end well.",
+        options: [
+            {
+                text: "Punch",
+                nextText: 7.2
+            },
+            {
+                text: "Kick",
+                nextText: 7.2
+            }
+        ]
+    },
+    {
+        id: 7.2,
+        text: "Wow, you just mercilessly killed that poor helpless monster, maybe the real monster is you...",
+        options: [
+            {
+                text: "Keep Going",
+                nextText: 5
+            }
+        ]
+    },
+    {
+        id: 7.5,
+        text: "You think you found the source of the scream and they speak to you asking if you're going to hurt them too",
+        options: [
+            {
+                text: "Consume the magical boost and continue on",
+                nextText: 5
             }
         ]
     },
