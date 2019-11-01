@@ -1164,7 +1164,7 @@ var textNodes = [
         options: [
             {
                 text: "FIGHT",
-                nextText: 11.1
+                nextText: 14.1
             },
         ]
     },
