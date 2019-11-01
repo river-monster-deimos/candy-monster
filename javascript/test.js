@@ -162,6 +162,9 @@ const c = {
 let combat = {
     enemies: [],
     playersTurn: false,
+    addEnemy: function (enemy) {
+        combat.enemies.push(enemy);
+    },
     checkPlayer: function () {
         if (player.hp <= 0) {
             return true;
@@ -191,19 +194,12 @@ let combat = {
         if (this.enemies.length > 0) {
             this.enemies[target].hp -= player.attacks[Attack].dmg;
             console.log("Damaged " + this.enemies[target].name + " by " + player.attacks[Attack].dmg);
-            this.checkEnemies();
+            if (this.checkEnemies()) {
+                this.playersTurn = false;
+            }
         }
         else {
             console.log("You are not currently in combat");
-        }
-    },
-    waitForPlayer: function () {
-        function loop() {
-            if (combat.inputAttack === "") {
-                setTimeout(loop, 0);
-            } else {
-                // callback();
-            }
         }
     },
     enemiesAttack: function () {
@@ -223,15 +219,8 @@ let combat = {
 
 function battle() {
     do {
-        combat.enemiesAttack();
-        while (true) {
-            if (combat.input === "") {
-            }
-            else {
-                combat.attack(combat.input, 0);
-                combat.input = "";
-                break;
-            }
+        if (combat.playersTurn === false) {
+            combat.enemiesAttack();
         }
     } while (combat.checkEnemies() && combat.checkPlayer());
 }
