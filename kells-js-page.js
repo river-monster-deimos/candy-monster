@@ -156,7 +156,7 @@ var textNodes = [
     },
     {
         id: 4.1,
-        text: "The candy closes just sits there.  What do you do?",
+        text: "The candy monster just sits there.  What do you do?",
         options: [
             {
                 text: "Punch",
@@ -202,7 +202,7 @@ var textNodes = [
                 nextText: 5.1
             }
         ]
-    },
+    }, //-------------BOSS FIGHT CITY-------------------
     {
         id: 5.1,
         text: "Hah it was a trap! You're ambushed by what seems to be a much larger candy monster. It takes a swipe at you and you lose __ HP. " +
@@ -324,7 +324,7 @@ var textNodes = [
             },
 
         ]
-    },
+    }, //------------START FOREST--------------
     {
         id: 6,
         text: "You walk into the forest on a path but it splits almost immediately which way do you go?",
@@ -391,7 +391,7 @@ var textNodes = [
                 nextText: 6.5
             }
         ]
-    },
+    }, //------------FIX DIALOUGE FOR FIGHT-----------------------
     {
         id: 6.5,
         text: "You slip and fall, the candy bites your leg. You lost __ HP",
@@ -451,7 +451,7 @@ var textNodes = [
                 nextText: 7.1
             }
         ]
-    },
+    },// ------------FIX SHORT FIGHT----------
     {
         id: 7.1,
         text: "Having made your choice you come to realize that there's a faint glow in the distance, but suddenly the glow grows brighter and you realize that it's coming towards you!" +
@@ -473,7 +473,7 @@ var textNodes = [
         options: [
             {
                 text: "Keep Going",
-                nextText: 5
+                nextText: 8
             }
         ]
     },
@@ -482,29 +482,451 @@ var textNodes = [
         text: "You think you found the source of the scream and they speak to you asking if you're going to hurt them too",
         options: [
             {
-                text: "Consume the magical boost and continue on",
-                nextText: 5
+                text: "Of course not!",
+                nextText: 7.6
             }
         ]
     },
     {
-        id: -1,
-        text:"You died.",
+        id: 7.6,
+        text:"The kiddo tells you about a monster that chased him into the forest and he eventually lost him but also got lost in the process."+
+        " They thank you and give you an item before they head off back towards town after you gesture the way.",
         options: [
             {
-                text: "New Game",
-                nextText: -2
+                text: "Take the item and continue",
+                nextText: 7.1
+            },
+        ]
+    },  //--------------------FIX BOSS FIGHT FOREST--------------------
+    {
+        id: 8,
+        text:"As the light fades from the pumpkins' eyes you realize you are not alone as you have provoked a very advanced looking pumpkin who you can only assume is superior to anything you've fought in this forest so far."+
+        " It looks at you and is now rushing towards you. What do you do?",
+        options: [
+            {
+                text: "FIGHT",
+                nextText: 8.1
             },
         ]
     },
     {
-        id: -2,
-        text:"You died.",
+        id: 8.1,
+        text: "The candy is getting ready to attack again. What do you do?",
         options: [
             {
-                text: "New Game",
-                nextText: -2
+                text: "Dodge",
+                nextText: 8.2
+            },
+            {
+                text: "Punch",
+                nextText: 8.3
+            },
+            {
+                text: "Kick",
+                nextText: 8.3
+            }
+        ]
+    },
+    {
+        id: 8.2,
+        text: "Your dodge was successful! There's an opening to attack, what will you do?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 8.3
+            },
+            {
+                text: "Kick",
+                nextText: 8.3
+            }
+        ]
+    },
+    {
+        id: 8.3,
+        text: "Your hit landed and made the monster screech. The monster frenzies and haphazardly tries to slash you. Think fast!",
+        options: [
+            {
+                text: "Dodge Again",
+                nextText: 8.4
+            },
+            {
+                text: "Block with your halloween prop",
+                nextText: 8.5
+            }
+        ]
+    },
+    {
+        id: 8.4,
+        text: "Your dodge failed and you take twice the damage since the monster is frenzied. __ HP lost. What's your next move?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 8.6
+            },
+            {
+                text: "Kick",
+                nextText: 8.6
+            }
+        ]
+    },
+    {
+        id: 8.5,
+        text: "You block the incoming swipe and your prop breaks but it took most of the damage for you. You only took half damage, __ HP. What's your next move?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 8.6
+            },
+            {
+                text: "Kick",
+                nextText: 8.6
+            }
+        ]
+    },
+    {
+        id: 8.6,
+        text: "This hit as well! With that, the monster has crumpled to the ground in pain. You can tell one more hit and the monster is done for. What do you do?",
+        options: [
+            {
+                text: "FINISH HIM",
+                nextText: 8.7
+            },
+            {
+                text: "Spare him",
+                nextText: 8.8
+            }
+        ]
+    },
+    {
+        id: 8.7,
+        text: "With one final blow you killed the monster that ambushed you, so weird that pumpkins were so aggressive tonight!"+
+        "You see a clearing in the distance now.",
+        options: [
+            {
+                text: "Go to the clearing",
+                nextText: 9
+            },
+
+        ]
+    },
+    {
+        id: 8.8,
+        text: "It was a grave mistake to try to spare the monster, it takes a cheap shot and takes you down and you aren't able to recover.",
+        options: [
+            {
+                text: "Don't trust monsters so easily",
+                nextText: -1
+            },
+
+        ]
+
+    },  //----------------START CEMETERY-----------------
+    {
+        id: 9,
+        text: "You walk towards the clearing and the closer you get the fog is lifting and you can now see it is a cemetery! What do you do?",
+        options: [
+            {
+                text: "Leave",
+                nextText: 9.9
+            },
+            {
+                text: "Proceed",
+                nextText: 9.1
+            }
+        ]
+    },
+    {
+        id: 9.1,
+        text: "You proceed into the cemetery slowly and as you enter you hear singing? "+
+        "What could that be? As you draw closer to the song you can see a gathered group, it actually sounds like they're performing a seance. What are you going to do? ",
+        options: [
+            {
+                text: "Sneak around them",
+                nextText: 9.2
+            },
+            {
+                text: "Confront them",
+                nextText: 9.4
+            }
+        ]
+    },
+    {
+        id: 9.2,
+        text: "You start to sneak around them but a shiny object catches your eyes and it draws you to it that you can't help but pick it up and take it."+
+        " But you're not the only one who notices it. You got caught!",
+        options: [
+            {
+                text: "FIGHT",
+                nextText: 9.4
+            }
+        ]
+    },
+    // {
+    //     id: 9.3,
+    //     text: "You try to talk to the pumpkin monster and ask it why the candy was being taken.... But the pumpkin starts to insult you! You don't take insults from no one!",
+    //     options: [
+    //         {
+    //             text: "FIGHT",
+    //             nextText: 9.4
+    //         }
+    //     ]
+    // }, //----------------FIX MULTI ENEMY FIGHT---------------
+    {
+        id: 9.4,
+        text: "These seancers turn to you and now it looks like it's 3 vs. 1 now. What're you going to do?",
+        options: [
+            {
+                text: "Dodge",
+                nextText: 9.5
+            },
+            {
+                text: "Punch",
+                nextText: 9.6
+            },
+            {
+                text: "Kick",
+                nextText: 9.5
+            }
+        ]
+    },
+    {
+        id: 9.5,
+        text: "You slip and fall, the seancers bites your leg. You lost __ HP",
+        options: [
+            {
+                text: "Stand and fight",
+                nextText: 9.4
+            }
+        ]
+    },
+    {
+        id: 9.6,
+        text: "You punch the seancers straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        options: [
+            {
+                text: "Run away!",
+                nextText: 9.7
+            },
+            {
+                text: "FINISH HIM!",
+                nextText: 9.8
+            }
+        ]
+    },
+    {
+        id: 9.7,
+        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The seancer has recovered and proceeds to jump you. You were never heard from again ",
+        options: [
+            {
+                text: "Die.",
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 9.8,
+        text: "You run full speed at the seancers, and do a flying kick to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
+        "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
+        options: [
+            {
+                text: "Take the candy and continue.",
+                nextText: 10
+            }
+        ]
+    },
+    {
+        id: 9.9,
+        text: "What? You.... want to leave? You coward! The mission, the candy... twas all for nothing.",
+        options: [
+            {
+                text: "Cowards way out",
+                nextText: -1
+            },
+
+        ]
+
+    },
+    {
+        id: 10,
+        text: "Celebrating your victory the seancer beckons you to come closer to tell you something. "+
+        "They tell you a very important message that will help you coming closer to the answer of who took all the candy in town. Then all of a sudden you hear a moaning growl coming from a grave nearby. What do you do?",
+        options: [
+            {
+                text: "Try to unearth to help the person in need",
+                nextText: 10.5
+            },
+            {
+                text: "Ignore it",
+                nextText: 10.1
+            }
+        ]
+    },// ------------FIX SHORT FIGHT----------
+    {
+        id: 10.1,
+        text: "Ignoring all that hub bub that could mean nothing but bad news all of a sudden you hear a new sound, whispering. You've been ambushed!",
+        options: [
+            {
+                text: "FIGHT",
+                nextText: 10.2
             },
         ]
+    },
+    {
+        id: 10.2,
+        text: "Wow, you just mercilessly killed that poor helpless monster, maybe the real monster is you...",
+        options: [
+            {
+                text: "Punch",
+                nextText: 10.6
+            },
+            {
+                text: "Kick",
+                nextText: 10.6
+            }
+        ]
+    },
+    {
+        id: 10.5,
+        text: "You got bit by a zombie! What did you think would be growling underground at a cemetery. Git gud noob.",
+        options: [
+            {
+                text: "A zombie you shall be",
+                nextText: -1
+            }
+        ]
+    },
+    {
+        id: 10.6,
+        text:"It only took one hit to take down that foolish creature, you feel yourself growing stronger with every fight. "+
+        "The pitiful creature heeds one last warning about what you are to be facing very soon and the creature sounds sincere? Maybe you should take that advice to heart",
+        options: [
+            {
+                text: "Take the advice and continue",
+                nextText: 11
+            },
+        ]
+    },  //--------------------FIX BOSS FIGHT CEMETERY--------------------
+    {
+        id: 11,
+        text:"You reach the end of the cemetery and all of a sudden you get a shiver in your spine, that could only mean one thing, a boss like creature approaches you as you walk out of the gated cemetery. "+
+        "You have a feeling that you cannot get around this creature, you're going to have to go through it",
+        options: [
+            {
+                text: "FIGHT",
+                nextText: 11.1
+            },
+        ]
+    },
+    {
+        id: 11.1,
+        text: "The candy is getting ready to attack again. What do you do?",
+        options: [
+            {
+                text: "Dodge",
+                nextText: 11.2
+            },
+            {
+                text: "Punch",
+                nextText: 11.3
+            },
+            {
+                text: "Kick",
+                nextText: 11.3
+            }
+        ]
+    },
+    {
+        id: 11.2,
+        text: "Your dodge was successful! There's an opening to attack, what will you do?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 11.3
+            },
+            {
+                text: "Kick",
+                nextText: 11.3
+            }
+        ]
+    },
+    {
+        id: 11.3,
+        text: "Your hit landed and made the monster screech. The monster frenzies and haphazardly tries to slash you. Think fast!",
+        options: [
+            {
+                text: "Dodge Again",
+                nextText: 11.4
+            },
+            {
+                text: "Block with your halloween prop",
+                nextText: 11.5
+            }
+        ]
+    },
+    {
+        id: 11.4,
+        text: "Your dodge failed and you take twice the damage since the monster is frenzied. __ HP lost. What's your next move?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 11.6
+            },
+            {
+                text: "Kick",
+                nextText: 11.6
+            }
+        ]
+    },
+    {
+        id: 11.5,
+        text: "You block the incoming swipe and your prop breaks but it took most of the damage for you. You only took half damage, __ HP. What's your next move?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 11.6
+            },
+            {
+                text: "Kick",
+                nextText: 11.6
+            }
+        ]
+    },
+    {
+        id: 11.6,
+        text: "This hit as well! With that, the monster has crumpled to the ground in pain. You can tell one more hit and the monster is done for. What do you do?",
+        options: [
+            {
+                text: "FINISH HIM",
+                nextText: 11.7
+            },
+            {
+                text: "Spare him",
+                nextText: 11.8
+            }
+        ]
+    },
+    {
+        id: 11.7,
+        text: "With one final blow you killed the monster that ambushed you, so weird that pumpkins were so aggressive tonight!"+
+        "You see a clearing in the distance now.",
+        options: [
+            {
+                text: "Go to the clearing",
+                nextText: 12
+            },
+
+        ]
+    },
+    {
+        id: 11.8,
+        text: "It was a grave mistake to try to spare the monster, it takes a cheap shot and takes you down and you aren't able to recover.",
+        options: [
+            {
+                text: "Don't trust monsters so easily",
+                nextText: -1
+            },
+
+        ]
+
     },
 ];
