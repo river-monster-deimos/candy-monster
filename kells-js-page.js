@@ -907,11 +907,11 @@ var textNodes = [
     },
     {
         id: 11.7,
-        text: "With one final blow you killed the monster that ambushed you, so weird that pumpkins were so aggressive tonight!"+
-        "You see a clearing in the distance now.",
+        text: "With the monster's final breath they tell you that all the answers you seek are at the lake."+
+        " This is it! You know where to go now, let's go get those answers!",
         options: [
             {
-                text: "Go to the clearing",
+                text: "Go to the lake",
                 nextText: 12
             },
 
@@ -923,6 +923,278 @@ var textNodes = [
         options: [
             {
                 text: "Don't trust monsters so easily",
+                nextText: -1
+            },
+
+        ]
+
+    }, //------------START LAKE-----------------
+    {
+        id: 12,
+        text: "As you're walking towards the lake you see the sky start to change, dawn is approaching and you're in serious trouble now, you were supposed to be home HOURS ago."+
+        " As you're planning what to say when you get home you suddenly trip and fall. You pick yourself back up and try to see what you tripped over. It's a weird looking item and you're not too sure what it is. "+
+        "While your curiosity has the best of you you feel something breath down the back of your neck. There's something behind you!",
+        options: [
+            {
+                text: "Try to reason",
+                nextText: 12.1
+            },
+            {
+                text: "FIGHT",
+                nextText: 12.2
+            }
+        ]
+    },
+    {
+        id: 12.1,
+        text: "You start to talk to the creature trying to tell them it's been a long night and you just need answers, and they do have an answer! "+
+        "The item you just picked up is an ancient weapon that can vanquish any enemy, even magical ones. But that's all you're getting out of them and now they're angry because you won't give it back.",
+        options: [
+            {
+                text: "FIGHT",
+                nextText: 12.2
+            }
+        ]
+    },  //----------------FIX FIGHT---------------
+    {
+        id: 12.2,
+        text: "You're going to have to fight in order to protect yourself and you hear some muffled sound too? What're you going to do?",
+        options: [
+            {
+                text: "Dodge",
+                nextText: 12.5
+            },
+            {
+                text: "Punch",
+                nextText: 12.6
+            },
+            {
+                text: "Kick",
+                nextText: 12.5
+            }
+        ]
+    },
+    {
+        id: 12.5,
+        text: "You slip and fall, the creature bites your leg. You lost __ HP",
+        options: [
+            {
+                text: "Stand and fight",
+                nextText: 12.4
+            }
+        ]
+    },
+    {
+        id: 12.6,
+        text: "You punch the creature straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        options: [
+            {
+                text: "FINISH HIM!",
+                nextText: 12.8
+            }
+        ]
+    },
+    {
+        id: 12.8,
+        text: "You run full speed at the creature, and do a flying kick to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
+        "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
+        options: [
+            {
+                text: "Take the candy and continue.",
+                nextText: 13
+            }
+        ]
+    },
+    {
+        id: 13,
+        text: "You remember you heard a muffled sound when this all began and you call out to see if you can hear it again. They respond with more muffles."+
+        " You eventually find a kid tied up to one of the trees near the lake and their eyes are filled with fear. What are you going to do?",
+        options: [
+            {
+                text: "Try to interrogate",
+                nextText: 13.5
+            },
+            {
+                text: "Rescue the kid",
+                nextText: 13.1
+            }
+        ]
+    },
+    {
+        id: 13.1,
+        text: "The kid thanks you for rescuing them and proceeds to tell you what has happened and that they've heard that it's something evil at the docks that has caused all of tonight's chaos. "+
+        "You take that as your sign to go to the docks to settle this once and for all",
+        options: [
+            {
+                text: "Go to the Docks",
+                nextText: 14
+            },
+        ]
+    },
+    {
+        id: 13.5,
+        text: "Wow, you would rather get answers than just being a kind person and trying to save the kid. He's not going to tell you anything now",
+        options: [
+            {
+                text: "You're inhuman",
+                nextText: -1
+            }
+        ]
+    },
+      //--------------------FIX BOSS FIGHT LAKE--------------------
+    {
+        id: 14,
+        text:"You reach the docks but you don't see anyone yet so you call out to provoke this evil being. Your wish is granted when the thing appears in front of you towards the end of the dock. "+
+        "You smart off to it and ask 'why the candy?' You get the reply, 'don't you recognize me... friend?' You're taken aback in horror, it's your friend River, who drowned in this lake a year ago today. "+
+        "River says 'I just want revenge on all who ignored my cries for help and just sat there eating candy as I went under, now it's time to pay' ",
+        options: [
+            {
+                text: "FIGHT",
+                nextText: 11.1
+            },
+        ]
+    },
+    {
+        id: 14.1,
+        text: "River is getting ready to attack. What do you do?",
+        options: [
+            {
+                text: "Dodge",
+                nextText: 14.2
+            },
+            {
+                text: "Punch",
+                nextText: 14.3
+            },
+            {
+                text: "Kick",
+                nextText: 14.3
+            }
+        ]
+    },
+    {
+        id: 14.2,
+        text: "Your dodge was successful! There's an opening to attack, what will you do?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 14.3
+            },
+            {
+                text: "Kick",
+                nextText: 14.3
+            }
+        ]
+    },
+    {
+        id: 14.3,
+        text: "Your hit landed and made the River yell. He frenzies and haphazardly tries to slash you. Think fast!",
+        options: [
+            {
+                text: "Dodge Again",
+                nextText: 14.4
+            },
+            {
+                text: "Block with your newly acquired item you tripped on",
+                nextText: 14.5
+            }
+        ]
+    },
+    {
+        id: 14.4,
+        text: "Your dodge failed and you take twice the damage since the monster is frenzied. __ HP lost. What's your next move?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 14.6
+            },
+            {
+                text: "Kick",
+                nextText: 14.6
+            }
+        ]
+    },
+    {
+        id: 14.5,
+        text: "You block the incoming swipe and it forcefully repels River and he stumbless backwards. What's your next move?",
+        options: [
+            {
+                text: "Punch",
+                nextText: 14.6
+            },
+            {
+                text: "Kick",
+                nextText: 14.6
+            }
+        ]
+    },
+    {
+        id: 14.6,
+        text: "This hit as well! With that, River has crumpled to the ground in pain. You can tell one more hit and River is done for. What do you do?",
+        options: [
+            {
+                text: "FINISH HIM",
+                nextText: 14.7
+            },
+            {
+                text: "Spare him",
+                nextText: 14.8
+            }
+        ]
+    },
+    {
+        id: 14.7,
+        text: "With River's final breath he says he forgives you and hands you one last piece of candy",
+        options: [
+            {
+                text: "Go to the clearing",
+                nextText: 15
+            },
+
+        ]
+    },
+    {
+        id: 14.8,
+        text: "Are you absolutely sure?",
+        options: [
+            {
+                text: "I'm sure",
+                nextText: 14.9
+            },
+
+        ]
+
+    },
+    {
+        id: 14.9,
+        text: "I can tell you haven't thought this through",
+        options: [
+            {
+                text: "Nah I'm good",
+                nextText: 14.95
+            },
+
+        ]
+
+    },
+    {
+        id: 14.95,
+        text: "River tries one last time to lunge at you but trips and falls right onto your ancient item which turns out to be a magical sword. River dies again by your hand",
+        options: [
+            {
+                text: "Way to go, you killed him again...",
+                nextText: 15
+            },
+
+        ]
+
+    },
+    {
+        id: 15,
+        text: "Welp now you know why there was no candy. Are you happy now? You eat that last piece of candy",
+        options: [
+            {
+                text: "The End",
                 nextText: -1
             },
 
