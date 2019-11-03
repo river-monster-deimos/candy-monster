@@ -13,6 +13,17 @@ html{background-color: black; font-family: 'Press Start 2P', cursive; box-sizing
     height: 100vh;
 }
 
+.end{
+    background-image: url("../img/theEnd.png")!important;
+    background-size: 100% 100%!important;
+    background-repeat: no-repeat!important;
+}
+.credits{
+    background-image: url("../img/credits.png")!important;
+    background-size: 100% 100%!important;
+    background-repeat: no-repeat!important;
+}
+
 #mainScreen{
     background-size: 100% 100%;
     padding: 0;
@@ -64,6 +75,14 @@ html{background-color: black; font-family: 'Press Start 2P', cursive; box-sizing
     background-image: url("../img/monsters-battle/skeleton.png")!important;
     background-size: 100% 100% !important;
 }
+.fish{
+    background-image: url("../img/monsters-battle/fishMonster.png")!important;
+    background-size: 100% 100% !important;
+}
+.river{
+    background-image: url("../img/monsters-battle/river.png")!important;
+    background-size: 100% 100% !important;
+}
 
 .lvl2{
     background-image: url("../img/levels/level2.png")!important;
@@ -74,7 +93,7 @@ html{background-color: black; font-family: 'Press Start 2P', cursive; box-sizing
 }
 
 .lvl4{
-
+    background-image: url("../img/levels/level4.png")!important;
 }
 
 .gameOver{

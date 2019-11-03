@@ -12,10 +12,10 @@
 
 var textElement = document.getElementById('text');//grabs the text
 var optionButtonsElement = document.getElementById('option-buttons');//grabs the buttons
-var state = {};
 var health = document.getElementById("hp-bar");
 var monster = document.getElementById("monster-bar");
 var exp = document.getElementById("exp-bar");
+var state = {};
 
 
 
@@ -79,7 +79,7 @@ function selectOption(option) {
         themeSong.pause();
         lvl1.play();
     }
-    if (nextTextNodeId <= -2){
+    if (nextTextNodeId <= -2 || nextTextNodeId >= 18){
         return endGame();
     }
     switch (nextTextNodeId) {
@@ -238,6 +238,55 @@ function selectOption(option) {
             RPGUI.set_value(monster,1);
             RPGUI.set_value(health,1);
             break;
+        case 12:
+            document.getElementById("mainScreen").className = "rpgui-container framed lvl4";
+            document.getElementById("monster").className = "rpgui-container framed fish";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            lvl3.pause();
+            themeSong.play();
+            break;
+        case 12.5:
+            RPGUI.set_value(health,0.8);
+            break;
+        case 12.6:
+            RPGUI.set_value(monster,0.5);
+            break;
+        case 12.8:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0.2);
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,1);
+            break;
+        case 14:
+            document.getElementById("monster").className = "rpgui-container framed river";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            break;
+        case 14.3:
+            RPGUI.set_value(monster,0.7);
+            break;
+        case 14.4:
+            RPGUI.set_value(health,0.6);
+            break;
+        case 14.5:
+            RPGUI.set_value(monster,0.5);
+            break;
+        case 14.6:
+            RPGUI.set_value(monster,0.2);
+            break;
+        case 14.95:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0);
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,1);
+            break;
+        case 16:
+            document.getElementById("mainScreen").className = "rpgui-container framed end";
+            break;
+        case 17:
+            document.getElementById("mainScreen").className = "rpgui-container framed credits";
+            break;
 
     }
 }
@@ -271,7 +320,7 @@ var textNodes = [
         options: [
             {
                 text: "Try another house",
-                nextText: 1.5
+                nextText: 11
             },
             {
                 text: "Move to the next street",
@@ -554,7 +603,7 @@ var textNodes = [
     },
     {
         id: 5.6,
-        text: "You block the incoming swipe and you only took half damage, __ HP. What's your next move?",
+        text: "You block the incoming swipe and you only took half damage. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -1210,7 +1259,7 @@ var textNodes = [
     },
     {
         id: 12.5,
-        text: "You slip and fall, the creature bites your leg. You lost __ HP",
+        text: "You slip and fall, the creature bites your leg.",
         options: [
             {
                 text: "Stand and fight",
@@ -1284,7 +1333,7 @@ var textNodes = [
         options: [
             {
                 text: "FIGHT",
-                nextText: 11.1
+                nextText: 14.1
             },
         ]
     },
@@ -1336,7 +1385,7 @@ var textNodes = [
     },
     {
         id: 14.4,
-        text: "Your dodge failed and you take twice the damage since the monster is frenzied. __ HP lost. What's your next move?",
+        text: "Your dodge failed and you take twice the damage since the monster is frenzied. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -1350,7 +1399,7 @@ var textNodes = [
     },
     {
         id: 14.5,
-        text: "You block the incoming swipe and it forcefully repels River and he stumbless backwards. What's your next move?",
+        text: "You block the incoming swipe and it forcefully repels River and he stumbles backwards. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -1429,7 +1478,43 @@ var textNodes = [
         options: [
             {
                 text: "The End",
-                nextText: -1
+                nextText: 16
+            },
+
+        ]
+
+    },
+    {
+        id: 16,
+        text: "",
+        options: [
+            {
+                text: "Credits",
+                nextText: 17
+            },
+
+        ]
+
+    },
+    {
+        id: 17,
+        text: "",
+        options: [
+            {
+                text: "Restart",
+                nextText: 18
+            },
+
+        ]
+
+    },
+    {
+        id: 18,
+        text: "",
+        options: [
+            {
+                text: "Restart",
+                nextText: 18
             },
 
         ]
