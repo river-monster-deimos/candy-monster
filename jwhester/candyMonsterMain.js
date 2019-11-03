@@ -320,7 +320,7 @@ var textNodes = [
         options: [
             {
                 text: "Try another house",
-                nextText: 11
+                nextText: 1.5
             },
             {
                 text: "Move to the next street",
