@@ -1,8 +1,5 @@
 "use strict";
 
-//TODO: place image on screen with text
-//TODO: add battle feature
-//TODO: target data-value when certain choices are made
 //TODO: add battle music
 //TODO: add sound effects
 
