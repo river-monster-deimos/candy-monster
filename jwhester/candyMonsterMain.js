@@ -1,8 +1,5 @@
 "use strict";
 
-//TODO: place image on screen with text
-//TODO: add battle feature
-//TODO: target data-value when certain choices are made
 //TODO: add battle music
 //TODO: add sound effects
 
@@ -320,7 +317,7 @@ var textNodes = [
         options: [
             {
                 text: "Try another house",
-                nextText: 11
+                nextText: 1.5
             },
             {
                 text: "Move to the next street",
