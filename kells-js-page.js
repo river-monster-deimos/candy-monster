@@ -1,5 +1,322 @@
-"use strict";
+"use strict";"use strict";
+
+//TODO: place image on screen with text
+//TODO: add battle feature
+//TODO: target data-value when certain choices are made
+//TODO: add battle music
+//TODO: add sound effects
+
+
+
+
+
+var textElement = document.getElementById('text');//grabs the text
+var optionButtonsElement = document.getElementById('option-buttons');//grabs the buttons
+var health = document.getElementById("hp-bar");
+var monster = document.getElementById("monster-bar");
+var exp = document.getElementById("exp-bar");
+var state = {};
+
+
+
+
+
+function startGameBoy() {
+    state = {};
+    themeSong.pause();
+    lvl1.play();
+    showTextNode(1);
+    document.getElementById("girl").style.display = "none";
+    document.getElementById("boy").style.display = "block";
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "block";
+    document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
+}
+function startGameGirl() {
+    state = {};
+    themeSong.pause();
+    lvl1.play();
+    showTextNode(1);
+    document.getElementById("girl").style.display = "block";
+    document.getElementById("boy").style.display = "none";
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("gameScreen").style.display = "block";
+    document.getElementById("mainScreen").className = "rpgui-container framed lvl1";
+}
+function endGame() {
+    window.location.reload();
+}
+
+function showTextNode(textNodeIndex) {
+    var textNode = textNodes.find(textNode => textNode.id === textNodeIndex);//grabs the text node
+    textElement.innerText = textNode.text;//enters the text onto the screen
+    while (optionButtonsElement.firstChild) {//removes buttons when not needed
+        optionButtonsElement.removeChild(optionButtonsElement.firstChild)
+    }
+    textNode.options.forEach(option => {//grabs the option from the node
+        if (showOption(option)) {
+            var button = document.createElement('button');
+            button.innerText = option.text;//adds text to button
+            button.classList.add('rpgui-button', 'golden', 'btn');//adds class
+            button.addEventListener('click', () => selectOption(option));
+            optionButtonsElement.appendChild(button);
+        }
+    });
+}
+
+
+
+function showOption(option) {
+    return option.requiredState == null || option.requiredState(state);
+}
+function creditWipe(){
+    if (textNodes.id === 17 || textNodes.id === 18){
+        textNodes.id.text.display = "none"
+    }
+}
+
+function selectOption(option) {
+    var nextTextNodeId = option.nextText;
+    state = Object.assign(state, option.setState);
+    showTextNode(nextTextNodeId);
+    if (textNodes.id === 1){
+        themeSong.pause();
+        lvl1.play();
+    }
+    if (nextTextNodeId <= -2 || nextTextNodeId >= 18){
+        return endGame();
+    }
+    switch (nextTextNodeId) {
+        case -1:
+            document.getElementById("mainScreen").className = "rpgui-container framed gameOver";
+            break;
+        case 2:
+            document.getElementById("monster").className = "rpgui-container framed candyCorn";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            break;
+        case 3.1:
+            RPGUI.set_value(health,0.7);
+            break;
+        case 3.2:
+            RPGUI.set_value(monster,0.5);
+            break;
+        case 3.4:
+            RPGUI.set_value(monster,0);
+            RPGUI.set_value(health,1);
+            RPGUI.set_value(exp,.3);
+
+            break;
+        case 3.5:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(monster,1);
+            break;
+        case 4:
+            document.getElementById("monster").className = "rpgui-container framed gum";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            break;
+        case 4.2:
+            RPGUI.set_value(monster,0);
+            break;
+        case 5:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,.6);
+            RPGUI.set_value(monster,1);
+            break;
+        case 5.1:
+            document.getElementById("monster").className = "rpgui-container framed boss1";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,0.8);
+            break;
+        case 5.4:
+            RPGUI.set_value(monster,0.8);
+            break;
+        case 5.5:
+            RPGUI.set_value(health,0.5);
+            break;
+        case 5.6:
+            RPGUI.set_value(health,0.2);
+            break;
+        case 5.7:
+            RPGUI.set_value(monster,0.2);
+            break;
+        case 5.8:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0);
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,1);
+            break;
+        case 6:
+            document.getElementById("mainScreen").className = "rpgui-container framed lvl2";
+            lvl1.pause();
+            lvl2.play();
+            break;
+        case 6.2:
+            document.getElementById("monster").className = "rpgui-container framed pumpkin1";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            break;
+        case 6.5:
+            RPGUI.set_value(health,0.8);
+            break;
+        case 6.8:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0.3);
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,1);
+            break;
+        case 7.1:
+            document.getElementById("monster").className = "rpgui-container framed pumpkin2";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            break;
+        case 7.2:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0.6);
+            break;
+        case 8:
+            document.getElementById("monster").className = "rpgui-container framed boss2";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            break;
+        case 8.3:
+            RPGUI.set_value(monster,0.8);
+            break;
+        case 8.4:
+            RPGUI.set_value(health,0.6);
+            break;
+        case 8.5:
+            RPGUI.set_value(health,0.5);
+            break;
+        case 8.6:
+            RPGUI.set_value(monster,0.2);
+            break;
+        case 8.7:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0);
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,1);
+            break;
+        case 9:
+            document.getElementById("mainScreen").className = "rpgui-container framed lvl3";
+            lvl2.pause();
+            lvl3.play();
+            break;
+        case 9.1:
+            document.getElementById("monster").className = "rpgui-container framed witches";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            break;
+        case 9.5:
+            RPGUI.set_value(health,0.8);
+            break;
+        case 9.8:
+            RPGUI.set_value(monster,0);
+            break;
+        case 10:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0.2);
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,1);
+            break;
+        case 11:
+            document.getElementById("monster").className = "rpgui-container framed skeleton";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            break;
+        case 11.3:
+            RPGUI.set_value(monster,0.7);
+            break;
+        case 11.4:
+            RPGUI.set_value(health,0.6);
+            break;
+        case 11.5:
+            RPGUI.set_value(health,0.5);
+            break;
+        case 11.7:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0);
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,1);
+            break;
+        case 12:
+            document.getElementById("mainScreen").className = "rpgui-container framed lvl4";
+            document.getElementById("monster").className = "rpgui-container framed fish";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            lvl3.pause();
+            themeSong.play();
+            break;
+        case 12.5:
+            RPGUI.set_value(health,0.8);
+            break;
+        case 12.6:
+            RPGUI.set_value(monster,0.5);
+            break;
+        case 12.8:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0.2);
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,1);
+            break;
+        case 14:
+            document.getElementById("monster").className = "rpgui-container framed river";
+            document.getElementById("monster-bar").className = "rpgui-progress purple";
+            break;
+        case 14.3:
+            RPGUI.set_value(monster,0.7);
+            break;
+        case 14.4:
+            RPGUI.set_value(health,0.6);
+            break;
+        case 14.5:
+            RPGUI.set_value(monster,0.5);
+            break;
+        case 14.6:
+            RPGUI.set_value(monster,0.2);
+            break;
+        case 14.95:
+            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+            document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
+            RPGUI.set_value(exp,0);
+            RPGUI.set_value(monster,1);
+            RPGUI.set_value(health,1);
+            break;
+        case 16:
+            document.getElementById("mainScreen").className = "rpgui-container framed end";
+            break;
+        case 17:
+            document.getElementById("mainScreen").className = "rpgui-container framed credits";
+            break;
+
+    }
+}
+
+
 var textNodes = [
+    {
+        id: -1,
+        text: "You died.",
+        options: [
+            {
+                text: "Restart Game",
+                nextText: -2
+            }
+        ]
+    },
+    {
+        id: -2,
+        text: "",
+        options: [
+            {
+                text: "Restart Game",
+                nextText: -2
+            }
+        ]
+    },
     {
         id: 1,
         text: "It's Halloween night and you find yourself trick or treating. The night has not gotten off to a good start, " +
@@ -7,7 +324,7 @@ var textNodes = [
         options: [
             {
                 text: "Try another house",
-                nextText: 1.5
+                nextText: 11
             },
             {
                 text: "Move to the next street",
@@ -71,11 +388,25 @@ var textNodes = [
     },
     {
         id: 3.1,
-        text: "You slip and fall, the candy bites your leg. You lost __ HP",
+        text: "You slip and fall, the candy bites your leg.",
         options: [
             {
                 text: "Stand and fight",
-                nextText: 3
+                nextText: 3.12
+            }
+        ]
+    },
+    {
+        id: 3.12,
+        text: "You dust yourself off, and are ready to act.",
+        options: [
+            {
+                text: "Attack!",
+                nextText: 3.2
+            },
+            {
+                text: "Run away!",
+                nextText: 3.3
             }
         ]
     },
@@ -95,7 +426,7 @@ var textNodes = [
     },
     {
         id: 3.3,
-        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The monster has recovered and proceeds to jump you. You were never heard from again ",
+        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The monster has recovered and proceeds to jump on top of you. You were never heard from again ",
         options: [
             {
                 text: "Die.",
@@ -109,7 +440,7 @@ var textNodes = [
         "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
         options: [
             {
-                text: "Take the candy and continue to the next street.",
+                text: "Continue to the next street.",
                 nextText: 3.5
             }
         ]
@@ -205,7 +536,7 @@ var textNodes = [
     }, //-------------BOSS FIGHT CITY-------------------
     {
         id: 5.1,
-        text: "Hah it was a trap! You're ambushed by what seems to be a much larger candy monster. It takes a swipe at you and you lose __ HP. " +
+        text: "Hah it was a trap! You're ambushed by what seems to be a much larger candy monster. It takes a swipe at you and slices your arm. " +
         "You have no choice but to fight for your life",
         options: [
             {
@@ -255,14 +586,14 @@ var textNodes = [
                 nextText: 5.5
             },
             {
-                text: "Block with your halloween prop",
+                text: "Block",
                 nextText: 5.6
             }
         ]
     },
     {
         id: 5.5,
-        text: "Your dodge failed and you take twice the damage since the monster is frenzied. __ HP lost. What's your next move?",
+        text: "Your dodge failed and you take twice the damage since the monster is frenzied.  What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -276,7 +607,7 @@ var textNodes = [
     },
     {
         id: 5.6,
-        text: "You block the incoming swipe and your prop breaks but it took most of the damage for you. You only took half damage, __ HP. What's your next move?",
+        text: "You block the incoming swipe and you only took half damage. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -376,7 +707,7 @@ var textNodes = [
     },
     {
         id: 6.4,
-        text: "The candy closes in on you.  What do you do?",
+        text: "The monster closes in on you.  What do you do?",
         options: [
             {
                 text: "Dodge",
@@ -394,7 +725,7 @@ var textNodes = [
     }, //------------FIX DIALOUGE FOR FIGHT-----------------------
     {
         id: 6.5,
-        text: "You slip and fall, the candy bites your leg. You lost __ HP",
+        text: "You slip and fall, the monster stabs your side.",
         options: [
             {
                 text: "Stand and fight",
@@ -404,7 +735,7 @@ var textNodes = [
     },
     {
         id: 6.6,
-        text: "You punch the candy straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        text: "You punch the monster straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
         options: [
             {
                 text: "Run away!",
@@ -428,7 +759,7 @@ var textNodes = [
     },
     {
         id: 6.8,
-        text: "You run full speed at the monster, and do a flying kick to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
+        text: "You run full speed at the monster, and do a flying knee to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
         "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
         options: [
             {
@@ -455,7 +786,7 @@ var textNodes = [
     {
         id: 7.1,
         text: "Having made your choice you come to realize that there's a faint glow in the distance, but suddenly the glow grows brighter and you realize that it's coming towards you!" +
-        " It's another kind of pumpkin monster you notice a little too late as it attacks you. You lost __ HP. You have to fight back or this won't end well.",
+        " It's another kind of pumpkin monster you notice a little too late as it jumps towards you.",
         options: [
             {
                 text: "Punch",
@@ -469,7 +800,7 @@ var textNodes = [
     },
     {
         id: 7.2,
-        text: "Wow, you just mercilessly killed that poor helpless monster, maybe the real monster is you...",
+        text: "You realize it was just a Jack'o'lantern hoping around the forest. Wow, you just mercilessly killed that poor helpless monster, maybe the real monster is you...",
         options: [
             {
                 text: "Keep Going",
@@ -490,10 +821,10 @@ var textNodes = [
     {
         id: 7.6,
         text:"The kiddo tells you about a monster that chased him into the forest and he eventually lost him but also got lost in the process."+
-        " They thank you and give you an item before they head off back towards town after you gesture the way.",
+        " They thank you and give you some candy before they head off back towards town after you gesture the way.",
         options: [
             {
-                text: "Take the item and continue",
+                text: "Take the candy and continue",
                 nextText: 7.1
             },
         ]
@@ -550,14 +881,14 @@ var textNodes = [
                 nextText: 8.4
             },
             {
-                text: "Block with your halloween prop",
+                text: "Block",
                 nextText: 8.5
             }
         ]
     },
     {
         id: 8.4,
-        text: "Your dodge failed and you take twice the damage since the monster is frenzied. __ HP lost. What's your next move?",
+        text: "Your dodge failed and you take twice the damage since the monster is frenzied. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -571,7 +902,7 @@ var textNodes = [
     },
     {
         id: 8.5,
-        text: "You block the incoming swipe and your prop breaks but it took most of the damage for you. You only took half damage, __ HP. What's your next move?",
+        text: "You block the incoming swipe, and you only took half the damage. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -638,7 +969,7 @@ var textNodes = [
     {
         id: 9.1,
         text: "You proceed into the cemetery slowly and as you enter you hear singing? "+
-        "What could that be? As you draw closer to the song you can see a gathered group, it actually sounds like they're performing a seance. What are you going to do? ",
+        "What could that be? As you draw closer to the song you can see a group of witches, it actually sounds like they're performing a seance. What are you going to do? ",
         options: [
             {
                 text: "Sneak around them",
@@ -652,7 +983,7 @@ var textNodes = [
     },
     {
         id: 9.2,
-        text: "You start to sneak around them but a shiny object catches your eyes and it draws you to it that you can't help but pick it up and take it."+
+        text: "You start to sneak around them but a pile of candy catches your eyes and it draws you to it that you can't help but pick it up and take it."+
         " But you're not the only one who notices it. You got caught!",
         options: [
             {
@@ -661,19 +992,11 @@ var textNodes = [
             }
         ]
     },
-    // {
-    //     id: 9.3,
-    //     text: "You try to talk to the pumpkin monster and ask it why the candy was being taken.... But the pumpkin starts to insult you! You don't take insults from no one!",
-    //     options: [
-    //         {
-    //             text: "FIGHT",
-    //             nextText: 9.4
-    //         }
-    //     ]
+
     // }, //----------------FIX MULTI ENEMY FIGHT---------------
     {
         id: 9.4,
-        text: "These seancers turn to you and now it looks like it's 3 vs. 1 now. What're you going to do?",
+        text: "These witches turn to you and now it looks like it's 3 vs. 1 now. What're you going to do?",
         options: [
             {
                 text: "Dodge",
@@ -691,7 +1014,7 @@ var textNodes = [
     },
     {
         id: 9.5,
-        text: "You slip and fall, the seancers bites your leg. You lost __ HP",
+        text: "You slip and fall, the witches poke you with their brooms.",
         options: [
             {
                 text: "Stand and fight",
@@ -701,21 +1024,21 @@ var textNodes = [
     },
     {
         id: 9.6,
-        text: "You punch the seancers straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        text: "You the dirt at the faces of all the witches. They stumbled backwards, and look to be dazed. Do you take advantage of the situation, and attack or do you run away?",
         options: [
             {
                 text: "Run away!",
                 nextText: 9.7
             },
             {
-                text: "FINISH HIM!",
+                text: "FINISH THEM!",
                 nextText: 9.8
             }
         ]
     },
     {
         id: 9.7,
-        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The seancer has recovered and proceeds to jump you. You were never heard from again ",
+        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The witches recover and proceed to attack you. You were never heard from again ",
         options: [
             {
                 text: "Die.",
@@ -725,8 +1048,8 @@ var textNodes = [
     },
     {
         id: 9.8,
-        text: "You run full speed at the seancers, and do a flying kick to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
-        "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
+        text: "You push the witches into their cauldron. As they die their screams drown out the night. VICTORY!" +
+        "You get the pile of candy all to yourself! Victory is sweet but candy is sweeter.",
         options: [
             {
                 text: "Take the candy and continue.",
@@ -748,8 +1071,7 @@ var textNodes = [
     },
     {
         id: 10,
-        text: "Celebrating your victory the seancer beckons you to come closer to tell you something. "+
-        "They tell you a very important message that will help you coming closer to the answer of who took all the candy in town. Then all of a sudden you hear a moaning growl coming from a grave nearby. What do you do?",
+        text: "Celebrating your victory you begin eating the candy, but all of a sudden you hear a moaning growl coming from a grave nearby. What do you do?",
         options: [
             {
                 text: "Try to unearth to help the person in need",
@@ -757,34 +1079,10 @@ var textNodes = [
             },
             {
                 text: "Ignore it",
-                nextText: 10.1
+                nextText: 11
             }
         ]
     },// ------------FIX SHORT FIGHT----------
-    {
-        id: 10.1,
-        text: "Ignoring all that hub bub that could mean nothing but bad news all of a sudden you hear a new sound, whispering. You've been ambushed!",
-        options: [
-            {
-                text: "FIGHT",
-                nextText: 10.2
-            },
-        ]
-    },
-    {
-        id: 10.2,
-        text: "Wow, you just mercilessly killed that poor helpless monster, maybe the real monster is you...",
-        options: [
-            {
-                text: "Punch",
-                nextText: 10.6
-            },
-            {
-                text: "Kick",
-                nextText: 10.6
-            }
-        ]
-    },
     {
         id: 10.5,
         text: "You got bit by a zombie! What did you think would be growling underground at a cemetery. Git gud noob.",
@@ -794,21 +1092,10 @@ var textNodes = [
                 nextText: -1
             }
         ]
-    },
-    {
-        id: 10.6,
-        text:"It only took one hit to take down that foolish creature, you feel yourself growing stronger with every fight. "+
-        "The pitiful creature heeds one last warning about what you are to be facing very soon and the creature sounds sincere? Maybe you should take that advice to heart",
-        options: [
-            {
-                text: "Take the advice and continue",
-                nextText: 11
-            },
-        ]
     },  //--------------------FIX BOSS FIGHT CEMETERY--------------------
     {
         id: 11,
-        text:"You reach the end of the cemetery and all of a sudden you get a shiver in your spine, that could only mean one thing, a boss like creature approaches you as you walk out of the gated cemetery. "+
+        text:"You reach the end of the cemetery and all of a sudden you get a shiver in your spine, that could only mean one thing, a skeleton approaches you as you walk out of the gated cemetery. "+
         "You have a feeling that you cannot get around this creature, you're going to have to go through it",
         options: [
             {
@@ -819,7 +1106,7 @@ var textNodes = [
     },
     {
         id: 11.1,
-        text: "The candy is getting ready to attack again. What do you do?",
+        text: "The skeleton is getting ready to attack. What do you do?",
         options: [
             {
                 text: "Dodge",
@@ -858,14 +1145,14 @@ var textNodes = [
                 nextText: 11.4
             },
             {
-                text: "Block with your halloween prop",
+                text: "Block",
                 nextText: 11.5
             }
         ]
     },
     {
         id: 11.4,
-        text: "Your dodge failed and you take twice the damage since the monster is frenzied. __ HP lost. What's your next move?",
+        text: "Your dodge failed and you take twice the damage since the monster is frenzied. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -879,7 +1166,7 @@ var textNodes = [
     },
     {
         id: 11.5,
-        text: "You block the incoming swipe and your prop breaks but it took most of the damage for you. You only took half damage, __ HP. What's your next move?",
+        text: "You block the incoming swipe. You only took half damage. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -976,7 +1263,7 @@ var textNodes = [
     },
     {
         id: 12.5,
-        text: "You slip and fall, the creature bites your leg. You lost __ HP",
+        text: "You slip and fall, the creature bites your leg.",
         options: [
             {
                 text: "Stand and fight",
@@ -1041,7 +1328,7 @@ var textNodes = [
             }
         ]
     },
-      //--------------------FIX BOSS FIGHT LAKE--------------------
+    //--------------------FIX BOSS FIGHT LAKE--------------------
     {
         id: 14,
         text:"You reach the docks but you don't see anyone yet so you call out to provoke this evil being. Your wish is granted when the thing appears in front of you towards the end of the dock. "+
@@ -1050,7 +1337,7 @@ var textNodes = [
         options: [
             {
                 text: "FIGHT",
-                nextText: 11.1
+                nextText: 14.1
             },
         ]
     },
@@ -1102,7 +1389,7 @@ var textNodes = [
     },
     {
         id: 14.4,
-        text: "Your dodge failed and you take twice the damage since the monster is frenzied. __ HP lost. What's your next move?",
+        text: "Your dodge failed and you take twice the damage since the monster is frenzied. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -1116,7 +1403,7 @@ var textNodes = [
     },
     {
         id: 14.5,
-        text: "You block the incoming swipe and it forcefully repels River and he stumbless backwards. What's your next move?",
+        text: "You block the incoming swipe and it forcefully repels River and he stumbles backwards. What's your next move?",
         options: [
             {
                 text: "Punch",
@@ -1195,7 +1482,43 @@ var textNodes = [
         options: [
             {
                 text: "The End",
-                nextText: -1
+                nextText: 16
+            },
+
+        ]
+
+    },
+    {
+        id: 16,
+        text: "",
+        options: [
+            {
+                text: "Credits",
+                nextText: 17
+            },
+
+        ]
+
+    },
+    {
+        id: 17,
+        text: "",
+        options: [
+            {
+                text: "Restart",
+                nextText: 18
+            },
+
+        ]
+
+    },
+    {
+        id: 18,
+        text: "",
+        options: [
+            {
+                text: "Restart",
+                nextText: 18
             },
 
         ]
