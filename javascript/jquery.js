@@ -4,6 +4,8 @@ var lvl1 = new Audio('../sounds/lvl1.mp3');
 var lvl2 = new Audio('../sounds/lvl2.mp3');
 var lvl3 = new Audio('../sounds/lvl3.mp3');
 var lvl4 = new Audio('../sounds/lvl4.mp3');
+var combat = new Audio('../sounds/combat.mp3');
+var river = new Audio('../sounds/river.mp3');
 
 
 $(document).ready(function() {

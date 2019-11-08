@@ -84,6 +84,8 @@ function selectOption(option) {
             document.getElementById("mainScreen").className = "rpgui-container framed gameOver";
             break;
         case 2:
+            lvl1.pause();
+            combat.play();
             document.getElementById("monster").className = "rpgui-container framed candyCorn";
             document.getElementById("monster-bar").className = "rpgui-progress purple";
             break;
@@ -100,6 +102,8 @@ function selectOption(option) {
 
             break;
         case 3.5:
+            lvl1.play();
+            combat.pause();
             document.getElementById("monster").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(monster,1);
@@ -118,6 +122,8 @@ function selectOption(option) {
             RPGUI.set_value(monster,1);
             break;
         case 5.1:
+            lvl1.pause();
+            combat.play();
             document.getElementById("monster").className = "rpgui-container framed boss1";
             document.getElementById("monster-bar").className = "rpgui-progress purple";
             RPGUI.set_value(monster,1);
@@ -136,6 +142,8 @@ function selectOption(option) {
             RPGUI.set_value(monster,0.2);
             break;
         case 5.8:
+            lvl1.play();
+            combat.pause();
             document.getElementById("monster").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(exp,0);
@@ -148,6 +156,8 @@ function selectOption(option) {
             lvl2.play();
             break;
         case 6.2:
+            lvl2.pause();
+            combat.play();
             document.getElementById("monster").className = "rpgui-container framed pumpkin1";
             document.getElementById("monster-bar").className = "rpgui-progress purple";
             break;
@@ -155,6 +165,8 @@ function selectOption(option) {
             RPGUI.set_value(health,0.8);
             break;
         case 6.8:
+            lvl2.play();
+            combat.pause();
             document.getElementById("monster").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(exp,0.3);
@@ -162,15 +174,21 @@ function selectOption(option) {
             RPGUI.set_value(health,1);
             break;
         case 7.1:
+            lvl2.pause();
+            combat.play();
             document.getElementById("monster").className = "rpgui-container framed pumpkin2";
             document.getElementById("monster-bar").className = "rpgui-progress purple";
             break;
         case 7.2:
+            lvl2.play();
+            combat.pause();
             document.getElementById("monster").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(exp,0.6);
             break;
         case 8:
+            lvl2.pause();
+            combat.play();
             document.getElementById("monster").className = "rpgui-container framed boss2";
             document.getElementById("monster-bar").className = "rpgui-progress purple";
             break;
@@ -187,6 +205,8 @@ function selectOption(option) {
             RPGUI.set_value(monster,0.2);
             break;
         case 8.7:
+            lvl2.play();
+            combat.pause();
             document.getElementById("monster").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(exp,0);
@@ -199,6 +219,8 @@ function selectOption(option) {
             lvl3.play();
             break;
         case 9.1:
+            lvl3.pause();
+            combat.play();
             document.getElementById("monster").className = "rpgui-container framed witches";
             document.getElementById("monster-bar").className = "rpgui-progress purple";
             break;
@@ -209,6 +231,8 @@ function selectOption(option) {
             RPGUI.set_value(monster,0);
             break;
         case 10:
+            lvl3.play();
+            combat.pause();
             document.getElementById("monster").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(exp,0.2);
@@ -216,6 +240,8 @@ function selectOption(option) {
             RPGUI.set_value(health,1);
             break;
         case 11:
+            lvl3.pause();
+            combat.play();
             document.getElementById("monster").className = "rpgui-container framed skeleton";
             document.getElementById("monster-bar").className = "rpgui-progress purple";
             break;
@@ -229,6 +255,8 @@ function selectOption(option) {
             RPGUI.set_value(health,0.5);
             break;
         case 11.7:
+            lvl3.play();
+            combat.pause();
             document.getElementById("monster").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(exp,0);
@@ -240,7 +268,7 @@ function selectOption(option) {
             document.getElementById("monster").className = "rpgui-container framed fish";
             document.getElementById("monster-bar").className = "rpgui-progress purple";
             lvl3.pause();
-            themeSong.play();
+            combat.play();
             break;
         case 12.5:
             RPGUI.set_value(health,0.8);
@@ -249,6 +277,8 @@ function selectOption(option) {
             RPGUI.set_value(monster,0.5);
             break;
         case 12.8:
+            lvl4.play();
+            combat.pause();
             document.getElementById("monster").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(exp,0.2);
@@ -256,6 +286,8 @@ function selectOption(option) {
             RPGUI.set_value(health,1);
             break;
         case 14:
+            lvl4.pause();
+            river.play();
             document.getElementById("monster").className = "rpgui-container framed river";
             document.getElementById("monster-bar").className = "rpgui-progress purple";
             break;
@@ -272,6 +304,8 @@ function selectOption(option) {
             RPGUI.set_value(monster,0.2);
             break;
         case 15:
+            themeSong.play();
+            river.pause();
             document.getElementById("characterScreen").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(exp,0);
