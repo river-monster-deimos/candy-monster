@@ -631,7 +631,7 @@ var textNodes = [
     },
     {
         id: 5.8,
-        text: "You bite it but it tastes expired! You spit it out so that you don't get candy AIDS. Out of the corner of your eye you see something running to the tree line of the forest. " +
+        text: "You bite it but it tastes expired! You spit it out immediately. Out of the corner of your eye you see something running to the tree line of the forest. " +
             "You have a feeling that it has to do something with this whole night being weird.",
         options: [
             {
