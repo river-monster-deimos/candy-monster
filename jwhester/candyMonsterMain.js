@@ -369,22 +369,22 @@ var textNodes = [
         text: "The candy closes in on you.  What do you do?",
         options: [
             {
-                text: "Dodge",
+                text: "Sidestep",
                 nextText: 3.1
             },
             {
-                text: "Punch",
+                text: "Lunge-punch",
                 nextText: 3.2
             },
             {
-                text: "Kick",
+                text: "Drop-kick",
                 nextText: 3.1
             }
         ]
     },
     {
         id: 3.1,
-        text: "You slip and fall, the candy bites your leg.",
+        text: "Your costume causes you to fall, the candy bites your leg.",
         options: [
             {
                 text: "Stand and fight",
@@ -408,21 +408,21 @@ var textNodes = [
     },
     {
         id: 3.2,
-        text: "You punch the candy straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        text: "Your punch makes a splat noise as it hits the candy, causing major damage. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation and attack or do you run away?",
         options: [
             {
                 text: "Run away!",
                 nextText: 3.3
             },
             {
-                text: "FINISH HIM!",
+                text: "Bite it",
                 nextText: 3.4
             }
         ]
     },
     {
         id: 3.3,
-        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The monster has recovered and proceeds to jump on top of you. You were never heard from again ",
+        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground. The candy promptly recovers and bites you while you are getting up. You were never heard from again ",
         options: [
             {
                 text: "Die.",
@@ -432,11 +432,11 @@ var textNodes = [
     },
     {
         id: 3.4,
-        text: "You run full speed at the monster, and do a flying kick to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
-            "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
+        text: "You bite the monster. It tastes amazing, your sugar-addicted mind cannot stop. There is nothing left. VICTORY!" +
+            "The candy monster had a smaller piece of candy on it.",
         options: [
             {
-                text: "Continue to the next street.",
+                text: "Take candy and continue to the next street.",
                 nextText: 3.5
             }
         ]
@@ -483,14 +483,14 @@ var textNodes = [
     },
     {
         id: 4.1,
-        text: "The candy monster just sits there.  What do you do?",
+        text: "The candy monster just sits there, unable to move.  What do you do?",
         options: [
             {
-                text: "Punch",
+                text: "Step on it",
                 nextText: 4.2
             },
             {
-                text: "Kick",
+                text: "Kick it",
                 nextText: 4.2
             }
         ]
@@ -543,95 +543,95 @@ var textNodes = [
     },
     {
         id: 5.2,
-        text: "The candy is getting ready to attack again. What do you do?",
+        text: "The candy moves to swipe again. What do you do?",
         options: [
             {
-                text: "Dodge",
+                text: "Try to dodge",
                 nextText: 5.3
             },
             {
-                text: "Punch",
+                text: "Rush it",
                 nextText: 5.4
             },
             {
-                text: "Kick",
+                text: "Kick it center mass",
                 nextText: 5.4
             }
         ]
     },
     {
         id: 5.3,
-        text: "Your dodge was successful! There's an opening to attack, what will you do?",
+        text: "It swipes at you but misses. While it recovers, you sense an opportunity;",
         options: [
             {
-                text: "Punch",
+                text: "Punch it",
                 nextText: 5.4
             },
             {
-                text: "Kick",
+                text: "Push it",
                 nextText: 5.4
             }
         ]
     },
     {
         id: 5.4,
-        text: "Your hit landed and made the monster screech. The monster frenzies and haphazardly tries to slash you. Think fast!",
+        text: "The monster flies back and starts swiping randomly. Think fast!",
         options: [
             {
-                text: "Dodge Again",
+                text: "Try to dodge",
                 nextText: 5.5
             },
             {
-                text: "Block",
+                text: "Block with arms",
                 nextText: 5.6
             }
         ]
     },
     {
         id: 5.5,
-        text: "Your dodge failed and you take twice the damage since the monster is frenzied.  What's your next move?",
+        text: "You try to avoid the swipe unsuccessfully. It hits your stomach, causing a sharp pain",
         options: [
             {
-                text: "Punch",
+                text: "Left hook",
                 nextText: 5.7
             },
             {
-                text: "Kick",
+                text: "Uppercut",
                 nextText: 5.7
             }
         ]
     },
     {
         id: 5.6,
-        text: "You block the incoming swipe and you only took half damage. What's your next move?",
+        text: "The monster swipes but you block with your arms, protecting your body. The monster pulls back, what do you do?",
         options: [
             {
-                text: "Punch",
+                text: "Left hook",
                 nextText: 5.7
             },
             {
-                text: "Kick",
+                text: "Uppercut",
                 nextText: 5.7
             }
         ]
     },
     {
         id: 5.7,
-        text: "This hit as well! With that, the monster has crumpled to the ground in pain. You can tell one more hit and the monster is done for. What do you do?",
+        text: "Your punch misshapes the monster significantly. It lets our a screech of pain and stumbles to the ground. What do you do?",
         options: [
             {
-                text: "FINISH HIM",
+                text: "Eat it too!",
                 nextText: 5.8
             },
             {
-                text: "Spare him",
+                text: "Spare it",
                 nextText: 5.9
             }
         ]
     },
     {
         id: 5.8,
-        text: "With one final blow you killed the monster that ambushed you over a bowl of candy. Wow what a night it's turning out to be! Out of the corner of your eye you see something running to the tree line of the forest. " +
+        text: "You bite it but it tastes expired! You spit it out so that you don't get candy AIDS. Out of the corner of your eye you see something running to the tree line of the forest. " +
             "You have a feeling that it has to do something with this whole night being weird.",
         options: [
             {
@@ -643,7 +643,7 @@ var textNodes = [
     },
     {
         id: 5.9,
-        text: "It was a grave mistake to try to spare the monster, it takes a cheap shot and takes you down and you aren't able to recover.",
+        text: "As hubris gets the better of you, you stand over the monster victoriously. It grabs your leg and pulls you into its mouth in a single motion",
         options: [
             {
                 text: "Don't trust monsters so easily",
@@ -693,7 +693,7 @@ var textNodes = [
     },
     {
         id: 6.3,
-        text: "You try to talk to the pumpkin monster and ask it why the candy was being taken.... But the pumpkin starts to insult you! You don't take insults from no one!",
+        text: "You try to talk to the pumpkin monster and ask it why the candy was being taken.... But the pumpkin starts to insult you! You don't take insults from no one(you have a fragile ego)!",
         options: [
             {
                 text: "FIGHT",
@@ -710,18 +710,18 @@ var textNodes = [
                 nextText: 6.5
             },
             {
-                text: "Punch",
+                text: "Right hook",
                 nextText: 6.6
             },
             {
-                text: "Kick",
+                text: "Upper-cut",
                 nextText: 6.5
             }
         ]
     }, //------------FIX DIALOUGE FOR FIGHT-----------------------
     {
         id: 6.5,
-        text: "You slip and fall, the monster stabs your side.",
+        text: "Your costume causes you to trip and fall backwards.",
         options: [
             {
                 text: "Stand and fight",
@@ -731,21 +731,21 @@ var textNodes = [
     },
     {
         id: 6.6,
-        text: "You punch the monster straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        text: "You punch the pumpkin and it makes a cracking noise as it stumbles back, dazed. Do you take advantage of the situation, and attack or do you run away?",
         options: [
             {
                 text: "Run away!",
                 nextText: 6.7
             },
             {
-                text: "FINISH HIM!",
+                text: "Gut punch",
                 nextText: 6.8
             }
         ]
     },
     {
         id: 6.7,
-        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The monster has recovered and proceeds to jump you. You were never heard from again ",
+        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground. The pumpkin recovers from its dazed state and tackles you. Its grip is too strong foy you to break and you begin to suffocate ",
         options: [
             {
                 text: "Die.",
@@ -755,8 +755,8 @@ var textNodes = [
     },
     {
         id: 6.8,
-        text: "You run full speed at the monster, and do a flying knee to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
-            "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
+        text: "You punch the monster through its center mass as hard as you can. A crushing sound can be heard as your fist pierces all the way through. Pumpkin seeds go everywhere. VICTORY!" +
+            "The monster seems to have had a piece of candy inside of it.",
         options: [
             {
                 text: "Take the candy and continue.",
@@ -785,18 +785,18 @@ var textNodes = [
             " It's another kind of pumpkin monster you notice a little too late as it jumps towards you.",
         options: [
             {
-                text: "Punch",
+                text: "Punch it",
                 nextText: 7.2
             },
             {
-                text: "Kick",
+                text: "tackle it",
                 nextText: 7.2
             }
         ]
     },
     {
         id: 7.2,
-        text: "You realize it was just a Jack'o'lantern hoping around the forest. Wow, you just mercilessly killed that poor helpless monster, maybe the real monster is you...",
+        text: "The jack-o-lantern is much less hardy than the previous one. It falls apart on contact with you.",
         options: [
             {
                 text: "Keep Going",
@@ -838,84 +838,84 @@ var textNodes = [
     },
     {
         id: 8.1,
-        text: "The candy is getting ready to attack again. What do you do?",
+        text: "The pumpkin swipes towards you with a hand-like vine. What do you do?",
         options: [
             {
-                text: "Dodge",
+                text: "Sidestep",
                 nextText: 8.2
             },
             {
-                text: "Punch",
+                text: "Pull in and punch",
                 nextText: 8.3
             },
             {
-                text: "Kick",
+                text: "Lunge and punch",
                 nextText: 8.3
             }
         ]
     },
     {
         id: 8.2,
-        text: "Your dodge was successful! There's an opening to attack, what will you do?",
+        text: "You dodge to the right. The vine barely passes your head. The pumpkin is recovering, what do you do?",
         options: [
             {
-                text: "Punch",
+                text: "Pull in and punch",
                 nextText: 8.3
             },
             {
-                text: "Kick",
+                text: "Lunge and punch",
                 nextText: 8.3
             }
         ]
     },
     {
         id: 8.3,
-        text: "Your hit landed and made the monster screech. The monster frenzies and haphazardly tries to slash you. Think fast!",
+        text: "You punch the pumpkin and knock it back. It leaps backwards and frantically swings its vine at you",
         options: [
             {
-                text: "Dodge Again",
+                text: "Duck and hope for the best",
                 nextText: 8.4
             },
             {
-                text: "Block",
+                text: "Try to grab the vine",
                 nextText: 8.5
             }
         ]
     },
     {
         id: 8.4,
-        text: "Your dodge failed and you take twice the damage since the monster is frenzied. What's your next move?",
+        text: "You duck but to no avail. The vine swipes across your shoulders and arm, giving you bad rope burn.",
         options: [
             {
-                text: "Punch",
+                text: "Charge in and punch",
                 nextText: 8.6
             },
             {
-                text: "Kick",
+                text: "Dive into it",
                 nextText: 8.6
             }
         ]
     },
     {
         id: 8.5,
-        text: "You block the incoming swipe, and you only took half the damage. What's your next move?",
+        text: "You grab the vine successfully, ending the pumkpin's frenzy. It rapidly retracts the vine.",
         options: [
             {
-                text: "Punch",
+                text: "Charge in and punch",
                 nextText: 8.6
             },
             {
-                text: "Kick",
+                text: "Dive into it",
                 nextText: 8.6
             }
         ]
     },
     {
         id: 8.6,
-        text: "This hit as well! With that, the monster has crumpled to the ground in pain. You can tell one more hit and the monster is done for. What do you do?",
+        text: "The pumpkin is knocked backwards and loses its balance, falling. ",
         options: [
             {
-                text: "FINISH HIM",
+                text: "Bash with rock",
                 nextText: 8.7
             },
             {
@@ -926,7 +926,7 @@ var textNodes = [
     },
     {
         id: 8.7,
-        text: "With one final blow you killed the monster that ambushed you, so weird that pumpkins were so aggressive tonight!"+
+        text: "You pick up a rock from the floor and hit the pumpkin as hard as you can. It caves in and its glow fades, leaving you in merely the light of the foggy moon!"+
             "You see a clearing in the distance now.",
         options: [
             {
@@ -938,7 +938,7 @@ var textNodes = [
     },
     {
         id: 8.8,
-        text: "It was a grave mistake to try to spare the monster, it takes a cheap shot and takes you down and you aren't able to recover.",
+        text: "As you begin to walk away, the pumpkin grabs you with its vine and throws you several yards into the air. You land on a rock an everything goes black.",
         options: [
             {
                 text: "Don't trust monsters so easily",
@@ -995,22 +995,22 @@ var textNodes = [
         text: "These witches turn to you and now it looks like it's 3 vs. 1 now. What're you going to do?",
         options: [
             {
-                text: "Dodge",
+                text: "Run",
                 nextText: 9.5
             },
             {
-                text: "Punch",
+                text: "Throw dirt",
                 nextText: 9.6
             },
             {
-                text: "Kick",
+                text: "Charge the nearest",
                 nextText: 9.5
             }
         ]
     },
     {
         id: 9.5,
-        text: "You slip and fall, the witches poke you with their brooms.",
+        text: "You trip on a tombstone, the witches poke you with their brooms.",
         options: [
             {
                 text: "Stand and fight",
@@ -1020,21 +1020,21 @@ var textNodes = [
     },
     {
         id: 9.6,
-        text: "You the dirt at the faces of all the witches. They stumbled backwards, and look to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        text: "You the dirt at the faces of all the witches. They collapse immediately, trying to remove it from their eyes. Do you take advantage of the situation, and attack or do you run away?",
         options: [
             {
                 text: "Run away!",
                 nextText: 9.7
             },
             {
-                text: "FINISH THEM!",
+                text: "Charge them",
                 nextText: 9.8
             }
         ]
     },
     {
         id: 9.7,
-        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground.  The witches recover and proceed to attack you. You were never heard from again ",
+        text: "As you start to run away the walls suddenly expand dramatically in height. The walls suddenly explode with a deafening bang and you fall to the ground. You suddenly begin to levitate and are pulled back. You feel a sharp pain and then nothing but blackness.",
         options: [
             {
                 text: "Die.",
@@ -1044,8 +1044,8 @@ var textNodes = [
     },
     {
         id: 9.8,
-        text: "You push the witches into their cauldron. As they die their screams drown out the night. VICTORY!" +
-            "You get the pile of candy all to yourself! Victory is sweet but candy is sweeter.",
+        text: "You push the witches into their cauldron. They seem weak to their own magic and liquefy in seconds. VICTORY!" +
+            "You find a pile of candy that was either being guarded by them or from another victim",
         options: [
             {
                 text: "Take the candy and continue.",
@@ -1067,7 +1067,7 @@ var textNodes = [
     },
     {
         id: 10,
-        text: "Celebrating your victory you begin eating the candy, but all of a sudden you hear a moaning growl coming from a grave nearby. What do you do?",
+        text: "Celebrating your victory you begin eating the candy, but all of a sudden you hear a gnawing and scratching sounds coming from a grave nearby. What do you do?",
         options: [
             {
                 text: "Try to unearth to help the person in need",
@@ -1081,7 +1081,7 @@ var textNodes = [
     },// ------------FIX SHORT FIGHT----------
     {
         id: 10.5,
-        text: "You got bit by a zombie! What did you think would be growling underground at a cemetery. Git gud noob.",
+        text: "As you go to unearth whatever is under the grave, a hand plunges through the ground and grabs your leg. You try to break its grip, but it's too strong. You are pulled underground and never found.",
         options: [
             {
                 text: "A zombie you shall be",
@@ -1091,8 +1091,8 @@ var textNodes = [
     },  //--------------------FIX BOSS FIGHT CEMETERY--------------------
     {
         id: 11,
-        text:"You reach the end of the cemetery and all of a sudden you get a shiver in your spine, that could only mean one thing, a skeleton approaches you as you walk out of the gated cemetery. "+
-            "You have a feeling that you cannot get around this creature, you're going to have to go through it",
+        text:"You reach the end of the cemetery and all of a sudden you hear a rough tapping sound as if bones are being popped. As you walk out of the gated cemetery, you find yourself looking at a skeleton. "+
+            "It makes a loud popping sound as its head turns all the way around to you. You are going to have to fight it.",
         options: [
             {
                 text: "FIGHT",
@@ -1102,81 +1102,81 @@ var textNodes = [
     },
     {
         id: 11.1,
-        text: "The skeleton is getting ready to attack. What do you do?",
+        text: "The skeleton begins to turn the rest of its body around to face you. What do you do?",
         options: [
             {
-                text: "Dodge",
+                text: "Sidestep",
                 nextText: 11.2
             },
             {
-                text: "Punch",
+                text: "Punch skull",
                 nextText: 11.3
             },
             {
-                text: "Kick",
+                text: "Hit it with a rock",
                 nextText: 11.3
             }
         ]
     },
     {
         id: 11.2,
-        text: "Your dodge was successful! There's an opening to attack, what will you do?",
+        text: "The skeleton charges at you. You sidestep it and trip it, causing it to fall to the ground.",
         options: [
             {
-                text: "Punch",
+                text: "Stomp spine",
                 nextText: 11.3
             },
             {
-                text: "Kick",
+                text: "Kick head",
                 nextText: 11.3
             }
         ]
     },
     {
         id: 11.3,
-        text: "Your hit landed and made the monster screech. The monster frenzies and haphazardly tries to slash you. Think fast!",
+        text: "The blow hits directly on the head. You hear a loud crunch of bones. The skeleton makes a bone-chilling screeching sound and swipes at your head",
         options: [
             {
-                text: "Dodge Again",
+                text: "Duck",
                 nextText: 11.4
             },
             {
-                text: "Block",
+                text: "Catch its arm",
                 nextText: 11.5
             }
         ]
     },
     {
         id: 11.4,
-        text: "Your dodge failed and you take twice the damage since the monster is frenzied. What's your next move?",
+        text: "You duck but the skeleton aimed lower than you thought and lands a painful blow directly to your head. What's your next move?",
         options: [
             {
-                text: "Punch",
+                text: "Upper-cut",
                 nextText: 11.6
             },
             {
-                text: "Kick",
+                text: "Left hook",
                 nextText: 11.6
             }
         ]
     },
     {
         id: 11.5,
-        text: "You block the incoming swipe. You only took half damage. What's your next move?",
+        text: "You grab the skeletons arm but it is stronger than you and starts to overpower your grip. What's your next move?",
         options: [
             {
-                text: "Punch",
+                text: "Punch its ribcage",
                 nextText: 11.6
             },
             {
-                text: "Kick",
+                text: "Kick through the empty abdomen",
                 nextText: 11.6
             }
         ]
     },
     {
         id: 11.6,
-        text: "This hit as well! With that, the monster has crumpled to the ground in pain. You can tell one more hit and the monster is done for. What do you do?",
+        text: "Your blow shatters its spine and it lets out a high-pitched scream. It seems to be severely damaged from the attack. What do you do?",
         options: [
             {
                 text: "FINISH HIM",
@@ -1190,7 +1190,7 @@ var textNodes = [
     },
     {
         id: 11.7,
-        text: "With the monster's final breath they tell you that all the answers you seek are at the lake."+
+        text: "You stomp the skeleton's skull, shattering it. Even though it is no longer appearing to have sentience, it points to the lake before its bones lock in place."+
             " This is it! You know where to go now, let's go get those answers!",
         options: [
             {
@@ -1202,10 +1202,10 @@ var textNodes = [
     },
     {
         id: 11.8,
-        text: "It was a grave mistake to try to spare the monster, it takes a cheap shot and takes you down and you aren't able to recover.",
+        text: "The skeleton grabs you pulls you under it. Its bones lock around you and you cannot move. A decaying corpse wonders out of the cemetery and feasts on you while you cannot move.",
         options: [
             {
-                text: "Don't trust monsters so easily",
+                text: "Get eaten",
                 nextText: -1
             },
 
@@ -1241,25 +1241,35 @@ var textNodes = [
     },  //----------------FIX FIGHT---------------
     {
         id: 12.2,
-        text: "You're going to have to fight in order to protect yourself and you hear some muffled sound too? What're you going to do?",
+        text: "You hear a loud and deep growling sound come from somewhere in front of you, concealed in the brush.",
         options: [
             {
-                text: "Dodge",
-                nextText: 12.5
+                text: "Dive to the side",
+                nextText: 12.51
             },
             {
-                text: "Punch",
+                text: "Prepare to punch",
                 nextText: 12.6
             },
             {
-                text: "Kick",
+                text: "Run",
                 nextText: 12.5
             }
         ]
     },
     {
         id: 12.5,
-        text: "You slip and fall, the creature bites your leg.",
+        text: "You turn around to find the greenery behind you has somehow grown too thick to traverse.",
+        options: [
+            {
+                text: "turn and fight",
+                nextText: 12.4
+            }
+        ]
+    },
+    {
+        id: 12.51,
+        text: "You dive to the ground as something leaps from the brush and strikes at where you just were.",
         options: [
             {
                 text: "Stand and fight",
@@ -1269,18 +1279,18 @@ var textNodes = [
     },
     {
         id: 12.6,
-        text: "You punch the creature straight in the face. It stumbles backwards, and looks to be dazed. Do you take advantage of the situation, and attack or do you run away?",
+        text: "You raise your fist and a mysterious creature, cloaked by darkness leaps out. You punch it it the head, dazing it",
         options: [
             {
-                text: "FINISH HIM!",
+                text: "Uppercut!",
                 nextText: 12.8
             }
         ]
     },
     {
         id: 12.8,
-        text: "You run full speed at the creature, and do a flying kick to the monsters face. The monster falls backwards and doesn't get back up. VICTORY!" +
-            "You received a piece of candy for beating the monster! Victory is sweet but candy is sweeter.",
+        text: "You punch the creature's jaw and it dematerializes into the darkness. VICTORY!" +
+            "You received a piece of candy for beating the monster.",
         options: [
             {
                 text: "Take the candy and continue.",
@@ -1339,42 +1349,42 @@ var textNodes = [
     },
     {
         id: 14.1,
-        text: "River is getting ready to attack. What do you do?",
+        text: "The fowl creature turns towards you and begins to walk towards you.",
         options: [
             {
-                text: "Dodge",
+                text: "Back up",
                 nextText: 14.2
             },
             {
-                text: "Punch",
+                text: "Punch in the face",
                 nextText: 14.3
             },
             {
-                text: "Kick",
+                text: "Punch in the stomach",
                 nextText: 14.3
             }
         ]
     },
     {
         id: 14.2,
-        text: "Your dodge was successful! There's an opening to attack, what will you do?",
+        text: "You walk backwards only to find your old friend's pace increasing.",
         options: [
             {
-                text: "Punch",
+                text: "Punch in the face",
                 nextText: 14.3
             },
             {
-                text: "Kick",
+                text: "Punch in the stomach",
                 nextText: 14.3
             }
         ]
     },
     {
         id: 14.3,
-        text: "Your hit landed and made the River yell. He frenzies and haphazardly tries to slash you. Think fast!",
+        text: "You punch River. He screams profanity at you then frenzies and haphazardly tries to whip you with his hair. Think fast!",
         options: [
             {
-                text: "Dodge Again",
+                text: "Sidestep",
                 nextText: 14.4
             },
             {
@@ -1385,10 +1395,10 @@ var textNodes = [
     },
     {
         id: 14.4,
-        text: "Your dodge failed and you take twice the damage since the monster is frenzied. What's your next move?",
+        text: "You find the tornado of hair too overwhelming to dodge. It throws you back several feet. You get up, slightly dazed. River has closed the distance fast. Do something!",
         options: [
             {
-                text: "Punch",
+                text: "Push",
                 nextText: 14.6
             },
             {
@@ -1399,21 +1409,17 @@ var textNodes = [
     },
     {
         id: 14.5,
-        text: "You block the incoming swipe and it forcefully repels River and he stumbles backwards. What's your next move?",
+        text: "The item knocks River back as soon as his hair touches it. He stumbles backwards, dazed. What's your next move?",
         options: [
             {
-                text: "Punch",
-                nextText: 14.6
-            },
-            {
-                text: "Kick",
+                text: "Hit with item",
                 nextText: 14.6
             }
         ]
     },
     {
         id: 14.6,
-        text: "This hit as well! With that, River has crumpled to the ground in pain. You can tell one more hit and River is done for. What do you do?",
+        text: "You hit him in the chest, causing a visible dent. He falls to the ground . What do you do?",
         options: [
             {
                 text: "FINISH HIM",
@@ -1427,7 +1433,7 @@ var textNodes = [
     },
     {
         id: 14.7,
-        text: "With River's final breath he says he forgives you and hands you one last piece of candy",
+        text: "With River's final breath he says he forgives you and hands you one last piece of candy. You raise the item, but before you could swing, he vanished.",
         options: [
             {
                 text: "Take the candy",
@@ -1462,7 +1468,7 @@ var textNodes = [
     },
     {
         id: 14.95,
-        text: "River tries one last time to lunge at you but trips and falls right onto your ancient item which turns out to be a magical sword. River dies again by your hand",
+        text: "River tries one last time to lunge at you but trips and falls right onto your ancient item which turns out to be a magical sword. River 'dies' again by your hand",
         options: [
             {
                 text: "Way to go, you killed him again...",
