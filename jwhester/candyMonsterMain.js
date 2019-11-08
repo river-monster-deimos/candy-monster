@@ -271,8 +271,8 @@ function selectOption(option) {
         case 14.6:
             RPGUI.set_value(monster,0.2);
             break;
-        case 14.95:
-            document.getElementById("monster").className = "rpgui-container framed monsterHP";
+        case 15:
+            document.getElementById("characterScreen").className = "rpgui-container framed monsterHP";
             document.getElementById("monster-bar").className = "rpgui-progress purple monsterHP";
             RPGUI.set_value(exp,0);
             RPGUI.set_value(monster,1);
