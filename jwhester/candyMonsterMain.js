@@ -76,7 +76,7 @@ function selectOption(option) {
         themeSong.pause();
         lvl1.play();
     }
-    if (nextTextNodeId <= -2 || nextTextNodeId >= 18){
+    if (nextTextNodeId <= -2){
         return endGame();
     }
     switch (nextTextNodeId) {
@@ -280,9 +280,12 @@ function selectOption(option) {
             break;
         case 16:
             document.getElementById("mainScreen").className = "rpgui-container framed end";
+            document.getElementById("option-buttons").className = "credit-button";
+            document.getElementById("text").style.display = "none";
             break;
         case 17:
             document.getElementById("mainScreen").className = "rpgui-container framed credits";
+            document.getElementById("dialog-box").style.display = "none";
             break;
 
     }
@@ -1427,7 +1430,7 @@ var textNodes = [
         text: "With River's final breath he says he forgives you and hands you one last piece of candy",
         options: [
             {
-                text: "Go to the clearing",
+                text: "Take the candy",
                 nextText: 15
             },
 

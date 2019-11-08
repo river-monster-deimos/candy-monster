@@ -3,9 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="test.css">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="rpgui.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
-<canvas></canvas>
+<div class="rpgui-content">
+    <div id="gameOpening">
+        <main role="main" class="main-content" id="main-content">
+            <div class="titleCont">
+                <h1 class="main-title" id="main-title">
+                    A River Monster Production<br><span style="padding-left:100px"></span><br><span style="padding-right:110px">(click to continue...)</span>
+                </h1>
+            </div>
+            <canvas id="noise" class="noise"></canvas>
+            <div class="vignette"></div>
+        </main>
+    </div>
+    <div id="startScreen" class="rpgui-container framed start" style="display: none">
+        <button class="rpgui-button golden btn startBoy" onclick="startGameBoy()">Boy</button>
+        <button class="rpgui-button golden btn startGirl" onclick="startGameGirl()">Girl</button>
+    </div>
+    <div id="gameOver" style="display: none">
+        <button class="rpgui-button golden btn end">New Game</button>
+    </div>
+    <div id="gameScreen" style="display: none">
+        <div id="mainScreen" class="rpgui-container framed" style="height: 540px; width: 980px">
+            <div class="container">
+                <div id="text"></div>
+                <div id="option-buttons" class="btn-grid">
+                    <button class="rpgui-button golden btn"></button>
+                    <button class="rpgui-button golden btn"></button>
+                    <button class="rpgui-button golden btn"></button>
+                </div>
+            </div>
+        </div>
+        <div id="characterScreen" class="rpgui-container framed" style="left:250px; top:540px; width: 730px">
+            <div id="chPic" class="rpgui-container framed" style="left:0px; top:540px; width: 250px">
+                <img src="../img/heroes/mainCharacterBoy.png" alt="" style="width: 200px; height: 215px" id="boy">
+                <img src="../img/heroes/mainCharacterGirl.png" alt="" style="width: 200px; height: 215px; display: none" id="girl">
+            </div>
+            <div id="stats" style="width: 400px; height: 215px">
+                <label>Health:</label>
+                <div id="hp-bar" data-value= '1' class="rpgui-progress red"></div>
+                <label>EXP:</label>
+                <div id="exp-bar" data-value= '0' class="rpgui-progress blue"></div>
+                <div id="monster-bar" data-value="1" class="rpgui-progress purple monsterHP" style="color: red">Monster Health:</div>
+                <img src="" alt="" style="width: 200px; height: 215px; margin-left: 480px; margin-top: -190px" class="rpgui-container framed monsterHP" id="monster">
+
+            </div>
+        </div>
+    </div>
+    <div id="end" class="rpgui-container framed start" style="display: none">
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+<script src="../javascript/jquery.js"></script>
+<script src="rpgui.js"></script>
 <script src="kells-js-page.js"></script>
 </body>
 </html>
