@@ -972,3 +972,11 @@ ul.rpgui-list-imp {
   left: 40px;
   background-image: url("img/slider-thumb-golden.png");
   background-size: 100% 100%; }
+
+
+/* Hiding the end text and moving button */
+.credit-button{
+  top: 14.5rem;
+  position: relative;
+  left: -2.5rem;
+}
