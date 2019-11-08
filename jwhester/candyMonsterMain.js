@@ -575,7 +575,7 @@ var textNodes = [
     },
     {
         id: 5.4,
-        text: "The monster flies back and starts swiping randomly. Think fast!",
+        text: "The monster recoils and starts swiping randomly. Think fast!",
         options: [
             {
                 text: "Try to dodge",
@@ -617,7 +617,7 @@ var textNodes = [
     },
     {
         id: 5.7,
-        text: "Your punch misshapes the monster significantly. It lets our a screech of pain and stumbles to the ground. What do you do?",
+        text: "Your punch misshapes the monster significantly. It stumbles to the ground and begins to reshape itself. What do you do?",
         options: [
             {
                 text: "Eat it too!",
@@ -731,7 +731,7 @@ var textNodes = [
     },
     {
         id: 6.6,
-        text: "You punch the pumpkin and it makes a cracking noise as it stumbles back, dazed. Do you take advantage of the situation, and attack or do you run away?",
+        text: "You punch the pumpkin and it makes a incoherent pumpkin noises as it stumbles back, dazed. Do you take advantage of the situation, and attack or do you run away?",
         options: [
             {
                 text: "Run away!",
@@ -745,7 +745,7 @@ var textNodes = [
     },
     {
         id: 6.7,
-        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground. The pumpkin recovers from its dazed state and tackles you. Its grip is too strong foy you to break and you begin to suffocate ",
+        text: "As you start to run away your legs get tripped up because of your costume, and you fall to the ground. The pumpkin recovers from its dazed state and tackles you. Its grip is too strong for you to break",
         options: [
             {
                 text: "Die.",
@@ -755,7 +755,7 @@ var textNodes = [
     },
     {
         id: 6.8,
-        text: "You punch the monster through its center mass as hard as you can. A crushing sound can be heard as your fist pierces all the way through. Pumpkin seeds go everywhere. VICTORY!" +
+        text: "You punch the monster through its center mass as hard as you can. Your fist pierces it, turning it into a jack-o-lantern. VICTORY!" +
             "The monster seems to have had a piece of candy inside of it.",
         options: [
             {
@@ -915,7 +915,7 @@ var textNodes = [
         text: "The pumpkin is knocked backwards and loses its balance, falling. ",
         options: [
             {
-                text: "Bash with rock",
+                text: "Hit it again",
                 nextText: 8.7
             },
             {
@@ -926,7 +926,7 @@ var textNodes = [
     },
     {
         id: 8.7,
-        text: "You pick up a rock from the floor and hit the pumpkin as hard as you can. It caves in and its glow fades, leaving you in merely the light of the foggy moon!"+
+        text: "You hit the pumpkin as hard as you can. It falls to the ground its glow fades, leaving you in merely the light of the foggy moon!"+
             "You see a clearing in the distance now.",
         options: [
             {
@@ -1044,7 +1044,7 @@ var textNodes = [
     },
     {
         id: 9.8,
-        text: "You push the witches into their cauldron. They seem weak to their own magic and liquefy in seconds. VICTORY!" +
+        text: "You push the witches into their cauldron. They seem weak to their own magic and melt Wizard of Oz style. VICTORY!" +
             "You find a pile of candy that was either being guarded by them or from another victim",
         options: [
             {
@@ -1123,18 +1123,18 @@ var textNodes = [
         text: "The skeleton charges at you. You sidestep it and trip it, causing it to fall to the ground.",
         options: [
             {
-                text: "Stomp spine",
+                text: "Stomp it",
                 nextText: 11.3
             },
             {
-                text: "Kick head",
+                text: "Kick it",
                 nextText: 11.3
             }
         ]
     },
     {
         id: 11.3,
-        text: "The blow hits directly on the head. You hear a loud crunch of bones. The skeleton makes a bone-chilling screeching sound and swipes at your head",
+        text: "The blow hits directly on the head. It shrieks before it swipes at your head",
         options: [
             {
                 text: "Duck",
@@ -1176,7 +1176,7 @@ var textNodes = [
     },
     {
         id: 11.6,
-        text: "Your blow shatters its spine and it lets out a high-pitched scream. It seems to be severely damaged from the attack. What do you do?",
+        text: "The skeleton flies back and seems dazed, barely standing. It seems to be severely damaged from the attack. What do you do?",
         options: [
             {
                 text: "FINISH HIM",
@@ -1190,7 +1190,7 @@ var textNodes = [
     },
     {
         id: 11.7,
-        text: "You stomp the skeleton's skull, shattering it. Even though it is no longer appearing to have sentience, it points to the lake before its bones lock in place."+
+        text: "You flick its forehead and it falls back. Even though it is no longer appearing to have sentience, it points to the lake before its bones lock in place."+
             " This is it! You know where to go now, let's go get those answers!",
         options: [
             {
@@ -1202,7 +1202,7 @@ var textNodes = [
     },
     {
         id: 11.8,
-        text: "The skeleton grabs you pulls you under it. Its bones lock around you and you cannot move. A decaying corpse wonders out of the cemetery and feasts on you while you cannot move.",
+        text: "The skeleton grabs you pulls you under it. Its bones lock around you and you cannot move. A decaying corpse wonders out of the cemetery and drags you underground while you cannot move.",
         options: [
             {
                 text: "Get eaten",
@@ -1419,7 +1419,7 @@ var textNodes = [
     },
     {
         id: 14.6,
-        text: "You hit him in the chest, causing a visible dent. He falls to the ground . What do you do?",
+        text: "You hit him in the chest, causing him to fall to the ground . What do you do?",
         options: [
             {
                 text: "FINISH HIM",
